@@ -25,7 +25,9 @@ const Login = () => {
         source={require('./assets/evoke.png')}
         style={styles.image}
       />
-      <View>      
+      <View>
+
+      
       <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
