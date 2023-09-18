@@ -1,8 +1,18 @@
 import { Link } from "@react-navigation/native";
 import { View, Text, StyleSheet, Image, ImageBackground  } from "react-native";
 import { FontAwesome5, FontAwesome, Feather, Foundation, Ionicons  } from '@expo/vector-icons';
+import { useFonts, Kanit_400Regular, Kanit_700Bold, Kanit_600SemiBold } from '@expo-google-fonts/kanit';
 
 export default function HomeScreen() {
+
+  let [fontsLoaded, fontError] = useFonts({
+    Kanit_400Regular, Kanit_700Bold, Kanit_600SemiBold
+  });
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../assets/images/bg2.jpg')} style={styles.containerHeader}>
@@ -14,10 +24,10 @@ export default function HomeScreen() {
           <Text style={styles.title}>Evoque</Text>
         </View>
         <Image
-          source={require('../../assets/images/user.png')}
+          source={require('../../assets/images/rodrigo.jpg')}
           style={styles.imagemPerfil}
         />
-        <Text style={styles.textUser}> Boa tarde, Fulano!</Text>
+        <Text style={styles.textUser}> Bem vindo, Rodrigo!</Text>
       </ImageBackground>
       <View style={styles.containerCard}>
 
@@ -96,10 +106,9 @@ const styles = StyleSheet.create({
   },
 
   title:{
-    color: '#fff', 
+    color: '#fff',
     fontSize: 32, 
-    fontWeight: 'bold',
-    letterSpacing: 2,
+    fontFamily: 'Kanit_600SemiBold',
   },
 
   imagemHeader:{
@@ -110,17 +119,19 @@ const styles = StyleSheet.create({
   },
   
   imagemPerfil:{
-    width: 150,
-    height: 150,
-    borderRadius: 50,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
     marginTop: 10,
     marginBottom: 50,
+    borderColor: '#FF6900',
+    borderWidth: 1,
   },
 
   textUser:{
     color: '#fff',
-    fontSize: 24,
-    fontWeight: '400',
+    fontSize: 32,
+    fontFamily: 'Kanit_400Regular',
   },
 
   containerCard:{
