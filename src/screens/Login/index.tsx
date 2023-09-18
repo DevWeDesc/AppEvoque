@@ -1,34 +1,32 @@
 import React, { useState } from 'react';
-import Checkbox from 'expo-checkbox';
-import { View, Text, TextInput, Button, StyleSheet, Image } from 'react-native';
-import { useFonts } from 'expo-font';
+import { View, Text, TextInput,  StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-const Login = () => {
+interface LoginProps {
+  navigation: StackNavigationProp<any>;
+}
+
+export default function Login({ navigation }: LoginProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isChecked, setChecked] = useState(false);
 
   const handleLogin = () => {
     console.log(`Email: ${email}, Senha: ${password}`);
+    navigation.navigate('Home');
   };
 
-  const [loaded] = useFonts({
-    Kanit: require('./assets/fonts/Kanit-Regular.ttf'),
-  });
-
-  if (!loaded) {
-    return null;
-  }
   
   return (
     
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
       <Image
-        source={require('./assets/evoke.png')}
+        source={require('../../assets/images/evoke.png')}
         style={styles.image}
       />
-      <View>      
+      <View>
+
+      
+      <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -44,25 +42,9 @@ const Login = () => {
         value={password}
         placeholderTextColor={'#fff'}
       />
-      <View>
-        <Text style={styles.paragraph}>Esqueci minha senha</Text>
-        <View style={styles.section}>
-          <Text style={styles.paragraph}>Lembrar de mim ?</Text>
-          <Checkbox
-            style={styles.checkbox}
-            value={isChecked}
-            onValueChange={setChecked}
-            color={isChecked ? '#FF6800' : undefined}
-          />
-        </View>
-      </View>
-      <Button 
-        color={'#FF6800'} 
-        backgroundColor={'#FF6800'}
-        title="Entrar" 
-        onPress={handleLogin}
-         
-      />
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+          <Text style={styles.textButton}>Entrar</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -77,7 +59,6 @@ const styles = StyleSheet.create({
   },
   title: {
     textTransform: 'uppercase',
-    fontFamily: 'Kanit',
     textAlign: 'center',
     fontSize: 32,
     marginBottom: 40,
@@ -90,7 +71,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderWidth: 1,
     borderColor: 'gray',
-    borderRadius: 5,
+    borderRadius: 100,
     marginBottom: 20,
     paddingLeft: 10,
   },
@@ -99,20 +80,16 @@ const styles = StyleSheet.create({
     height: 200,
     marginBottom: 200,
   },
-  section: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+  button: {
     alignItems: 'center',
-    gap: 10,
-    marginBottom: 30,
+    justifyContent: 'center',
+    padding: 10,
+    backgroundColor: '#FF6900',
+    marginTop: 10,
+    borderRadius: 100, 
   },
-  paragraph: {
+  textButton:{
     color: '#fff',
-    fontSize: 15,
-  },
-  checkbox: {
-    margin: 8,
-  },
+    fontWeight: 'bold',
+  }
 });
-
-export default Login;
