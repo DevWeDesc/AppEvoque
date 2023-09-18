@@ -19,14 +19,12 @@ export default function Login({ navigation }: LoginProps) {
   return (
     
     <View style={styles.container}>
+      <Text style={styles.title}>Login</Text>
       <Image
-        source={require('../../assets/images/evoke.png')}
+        source={require('../../assets/images/evoque.png')}
         style={styles.image}
       />
-      <View>
-
-      
-      <Text style={styles.title}>Login</Text>
+      <View>      
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -76,8 +74,8 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   image: {
-    width: 200,
-    height: 200,
+    width: 250,
+    height: 250,
     marginBottom: 200,
   },
   button: {

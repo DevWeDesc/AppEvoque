@@ -7,7 +7,8 @@ const { Navigator, Screen } = createStackNavigator()
 export function AppRoutes() {
   return (
     <Navigator
-      initialRouteName="Login"
+      initialRouteName="Home"
+      // Alterar para a tela de login
       screenOptions={{
         headerShown: false,
         headerBackgroundContainerStyle: {
