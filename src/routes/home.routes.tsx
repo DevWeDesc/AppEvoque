@@ -6,6 +6,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import Training from '../screens/Training';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Platform } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 const TrainingStack = createStackNavigator();
@@ -51,7 +52,7 @@ export function HomeRoutes() {
           tabBarStyle:{
             backgroundColor: '#2A2C33',
             borderTopColor: 'rgba(255, 105, 0, 1.4)',
-            height: 70,
+            height: Platform.OS === 'ios' ? 90 : 70,
           },
           tabBarActiveTintColor: '#FFF',
 
@@ -63,7 +64,10 @@ export function HomeRoutes() {
             tabBarIcon: () => (
               <FontAwesome5 name="home" color="#FF6900" size={25} />
             ),
-            tabBarLabelStyle: { fontSize: 16, fontWeight: 'bold' },
+            tabBarLabelStyle: { 
+              fontSize: 16,
+              marginBottom: Platform.OS === 'ios' ? 0 : 10,
+            },
           }}
           name="Inicio" 
           component={HomeScreen} 
@@ -75,7 +79,10 @@ export function HomeRoutes() {
             tabBarIcon: () => (
               <FontAwesome5 name="dumbbell" color="#FF6900" size={24} />
             ),
-            tabBarLabelStyle: { fontSize: 16 },
+            tabBarLabelStyle: { 
+              fontSize: 16,
+              marginBottom: Platform.OS === 'ios' ? 0 : 10,
+            },
           }}
           name="Treinos" 
           component={TrainingStackScreen}
@@ -84,10 +91,18 @@ export function HomeRoutes() {
         <Tab.Screen
           options={{ 
             headerShown: false,
+            tabBarIconStyle:{
+              // marginTop: 10,
+              width: 60,
+              height: 60,
+            },
             tabBarIcon: () => (
               <FontAwesome5 name="bars" color="#FF6900" size={25} />
             ),
-            tabBarLabelStyle: { fontSize: 16 },
+            tabBarLabelStyle: { 
+              fontSize: 16,
+              marginBottom: Platform.OS === 'ios' ? 0 : 10,
+            },
           }}
           name="Menu" 
           component={SettingsScreen} 
