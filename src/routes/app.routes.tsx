@@ -15,7 +15,7 @@ export function AppRoutes() {
         style='light'
       />
       <Navigator
-        initialRouteName="Login"
+        initialRouteName="Home"
         // Alterar para a tela de login
         screenOptions={{
           headerShown: false,

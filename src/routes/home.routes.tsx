@@ -19,12 +19,14 @@ const TrainingStackScreen = ({ navigation }: any) => (
         title: 'Treinos',
         headerStyle: {
           backgroundColor: '#2A2C33',
+          shadowColor: 'transparent',
         },
         headerTintColor: '#FF6900',
         headerTitleStyle: {
           fontSize: 16,
           fontWeight: 'bold',
         },
+        headerTitleAlign: 'center',
         headerLeft: () => (
           <FontAwesome5
             name="arrow-left"
@@ -44,6 +46,7 @@ export function HomeRoutes() {
     <>
       <StatusBar translucent={true} style='light' />
       <Tab.Navigator 
+        initialRouteName="Treinos"
         screenOptions={{
           tabBarStyle:{
             backgroundColor: '#2A2C33',
@@ -51,6 +54,7 @@ export function HomeRoutes() {
             height: 70,
           },
           tabBarActiveTintColor: '#FFF',
+
         }}
       >
         <Tab.Screen 
