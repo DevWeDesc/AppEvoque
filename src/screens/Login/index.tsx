@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput,  StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
-interface LoginProps {
+export interface LoginProps {
   navigation: StackNavigationProp<any>;
 }
 

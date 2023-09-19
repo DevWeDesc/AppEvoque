@@ -1,9 +1,10 @@
 import { Link } from "@react-navigation/native";
-import { View, Text, StyleSheet, Image, ImageBackground  } from "react-native";
+import { View, Text, StyleSheet, Image, ImageBackground, Pressable, TouchableOpacity  } from "react-native";
 import { FontAwesome5, FontAwesome, Feather, Foundation, Ionicons  } from '@expo/vector-icons';
 import { useFonts, Kanit_400Regular, Kanit_700Bold, Kanit_600SemiBold } from '@expo-google-fonts/kanit';
+import { LoginProps } from "../Login";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }: LoginProps) {
 
   let [fontsLoaded, fontError] = useFonts({
     Kanit_400Regular, Kanit_700Bold, Kanit_600SemiBold
@@ -31,12 +32,13 @@ export default function HomeScreen() {
       </ImageBackground>
       <View style={styles.containerCard}>
 
-        <View style={styles.card}>
+        
+        <TouchableOpacity style={styles.card} onPress={ () => navigation.navigate('Treinos') }>
           <View style={styles.cardIcon}>
             <FontAwesome5 name="dumbbell" color="#FF6900" size={25} />
           </View>
           <Text style={styles.cardText}>Treinos</Text>
-        </View>
+        </TouchableOpacity>
 
         <View style={styles.card}>
         <View style={styles.cardIcon}>
@@ -59,12 +61,12 @@ export default function HomeScreen() {
           <Text style={styles.cardText}>Meu Progresso</Text>
         </View>
 
-        <View style={styles.card}>
+        <TouchableOpacity style={styles.card} onPress={ () => navigation.navigate('Person') }>
           <View style={styles.cardIcon}>
           <Ionicons name="person" size={24} color="#FF6900" />
           </View>
           <Text style={styles.cardText}>Perfil</Text>
-        </View>
+        </TouchableOpacity>
 
         <View style={styles.card}>
           <View style={styles.cardIcon}>
@@ -177,10 +179,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   }
 
-  // button: {
-  //   padding: 10,
-  //   backgroundColor: '#FF6900',
-  //   borderRadius: 5,
-  //   marginTop: 10,
-  // },
 });
