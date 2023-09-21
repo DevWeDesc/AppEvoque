@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5, Feather } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import Training from '../screens/Training';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -10,6 +10,7 @@ import { Platform } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 const TrainingStack = createStackNavigator();
+
 
 const TrainingStackScreen = ({ navigation }: any) => (
   <TrainingStack.Navigator>
@@ -29,7 +30,7 @@ const TrainingStackScreen = ({ navigation }: any) => (
         },
         headerTitleAlign: 'center',
         headerLeft: () => (
-          <FontAwesome5
+          <Feather
             name="arrow-left"
             color="#FF6900"
             size={24}
@@ -47,7 +48,7 @@ export function HomeRoutes() {
     <>
       <StatusBar translucent={true} style='light' />
       <Tab.Navigator 
-        initialRouteName="Treinos"
+        initialRouteName="Home"
         screenOptions={{
           tabBarStyle:{
             backgroundColor: '#2A2C33',

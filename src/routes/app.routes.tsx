@@ -4,10 +4,11 @@ import { HomeRoutes } from './home.routes'
 import Treinos from '../screens/Training'
 import Perfil from '../screens/Person'
 import { StatusBar } from 'expo-status-bar'
+import { FontAwesome5 } from '@expo/vector-icons';
 
 const { Navigator, Screen } = createStackNavigator()
 
-export function AppRoutes() {
+export function AppRoutes({ navigation }:any) {
   return (
     <>
       <StatusBar
@@ -41,7 +42,15 @@ export function AppRoutes() {
             headerShown: true,
             headerTitle: 'Perfil',
             headerTitleAlign: 'center',
-
+            headerStyle: {
+              backgroundColor: '#2A2C33',
+              shadowColor: 'transparent',
+            },
+            headerTintColor: '#FF6900',
+            headerTitleStyle: {
+              fontSize: 16,
+              fontWeight: 'bold',
+            },
           }}
           />
       </Navigator>
