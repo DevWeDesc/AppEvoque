@@ -1,5 +1,4 @@
-import { Link } from "@react-navigation/native";
-import { View, Text, StyleSheet, Image, ImageBackground, Pressable, TouchableOpacity  } from "react-native";
+import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity  } from "react-native";
 import { FontAwesome5, FontAwesome, Feather, Foundation, Ionicons  } from '@expo/vector-icons';
 import { useFonts, Kanit_400Regular, Kanit_700Bold, Kanit_600SemiBold } from '@expo-google-fonts/kanit';
 import { LoginProps } from "../Login";

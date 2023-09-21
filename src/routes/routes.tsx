@@ -1,20 +1,91 @@
 import React from 'react';
+import { Platform } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { FontAwesome5, Feather } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import { FontAwesome5, Feather } from '@expo/vector-icons';
-import { StatusBar } from 'expo-status-bar';
 import Training from '../screens/Training';
-import { createStackNavigator } from '@react-navigation/stack';
-import { Platform } from 'react-native';
+import Person from '../screens/Person';
+import Login from '../screens/Login';
 
+
+const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
-const TrainingStack = createStackNavigator();
+const Stack = createStackNavigator();
 
+const PersonStackScreen = ({ navigation }: any) => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Person"
+      component={Person}
+      options={{
+        title: 'Perfil',
+        headerStyle: {
+          backgroundColor: '#2A2C33',
+          shadowColor: 'transparent',
+        },
+        headerTintColor: '#FF6900',
+        headerTitleStyle: {
+          fontSize: 16,
+          fontWeight: 'bold',
+        },
+        headerTitleAlign: 'center',
+        headerLeft: () => (
+          <Feather
+            name="arrow-left"
+            color="#FF6900"
+            size={24}
+            style={{ marginLeft: 16 }}
+            onPress={() => navigation.navigate('Home')}
+          />
+        ),
+      }}
+    />
+    
+  </Stack.Navigator>
+);
+
+function AppDrawer() {
+  return (
+    <Drawer.Navigator
+      screenOptions={{
+        headerShown: false,
+        drawerStyle: {
+          backgroundColor: '#2A2C33',
+          width: 240,
+        },
+        drawerActiveBackgroundColor: '#FF6900',
+        drawerActiveTintColor: '#FFF',
+        drawerInactiveTintColor: '#FFF',
+      }}
+    >
+      <Drawer.Screen 
+      name="Login" 
+      component={Login} 
+      options={{
+        headerShown: false,
+        drawerLabel: () => null,
+        swipeEnabled: false
+      }}
+      />
+      <Drawer.Screen name="Home" component={HomeRoutes} />
+      <Stack.Screen     
+        name="Person" 
+        component={PersonStackScreen} 
+      />
+      
+    </Drawer.Navigator>
+  );
+}
 
 const TrainingStackScreen = ({ navigation }: any) => (
-  <TrainingStack.Navigator>
-    <TrainingStack.Screen
+  <Stack.Navigator>
+    <Stack.Screen
       name="Training"
       component={Training}
       options={{
@@ -35,15 +106,16 @@ const TrainingStackScreen = ({ navigation }: any) => (
             color="#FF6900"
             size={24}
             style={{ marginLeft: 16 }}
-            onPress={() => navigation.navigate('Inicio')}
+            onPress={() => navigation.goBack()}
           />
         ),
       }}
     />
-  </TrainingStack.Navigator>
+    
+  </Stack.Navigator>
 );
 
-export function HomeRoutes() {
+function HomeRoutes() {
   return (
     <>
       <StatusBar translucent={true} style='light' />
@@ -104,11 +176,25 @@ export function HomeRoutes() {
               fontSize: 16,
               marginBottom: Platform.OS === 'ios' ? 0 : 10,
             },
+            
           }}
           name="Menu" 
           component={SettingsScreen} 
-        />        
+        />
+                
       </Tab.Navigator>
     </>
   );
 }
+
+
+
+function AppNavigator() {
+  return (
+    <NavigationContainer>
+      <AppDrawer />
+    </NavigationContainer>
+  );
+}
+
+export default AppNavigator;
