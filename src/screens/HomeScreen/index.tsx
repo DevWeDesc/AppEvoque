@@ -75,9 +75,6 @@ export default function HomeScreen({ navigation }: LoginProps) {
         </View>
         
       </View>
-      {/* <Link style={styles.button} to="/Login">
-          <Text style={{ color: '#fff' }}>Sair</Text>
-      </Link> */}
     </View>
   );
   

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { NavigationContainer } from '@react-navigation/native';
+import { DrawerActions, NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { FontAwesome5, Feather } from '@expo/vector-icons';
@@ -21,10 +21,9 @@ const Stack = createStackNavigator();
 const PersonStackScreen = ({ navigation }: any) => (
   <Stack.Navigator>
     <Stack.Screen
-      name="Person"
+      name="Perfil"
       component={Person}
       options={{
-        title: 'Perfil',
         headerStyle: {
           backgroundColor: '#2A2C33',
           shadowColor: 'transparent',
@@ -51,6 +50,9 @@ const PersonStackScreen = ({ navigation }: any) => (
 );
 
 function AppDrawer() {
+
+  const includeLoginRoute = false
+ 
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -70,13 +72,24 @@ function AppDrawer() {
       options={{
         headerShown: false,
         drawerLabel: () => null,
-        swipeEnabled: false
+        swipeEnabled: false,
       }}
       />
-      <Drawer.Screen name="Home" component={HomeRoutes} />
+      
+      <Drawer.Screen 
+        name="Home" 
+        component={HomeRoutes}
+        options={{
+          title: 'Inicio',
+        }} 
+      />
+      
       <Stack.Screen     
         name="Person" 
         component={PersonStackScreen} 
+        options={{
+          title: 'Perfil',
+        }}
       />
       
     </Drawer.Navigator>
@@ -116,6 +129,8 @@ const TrainingStackScreen = ({ navigation }: any) => (
 );
 
 function HomeRoutes() {
+  const navigation = useNavigation();
+  
   return (
     <>
       <StatusBar translucent={true} style='light' />
@@ -162,15 +177,15 @@ function HomeRoutes() {
         />
 
         <Tab.Screen
+
           options={{ 
             headerShown: false,
             tabBarIconStyle:{
-              // marginTop: 10,
               width: 60,
               height: 60,
             },
             tabBarIcon: () => (
-              <FontAwesome5 name="bars" color="#FF6900" size={25} />
+                <FontAwesome5 name="bars" color="#FF6900" size={24} />
             ),
             tabBarLabelStyle: { 
               fontSize: 16,
@@ -178,8 +193,15 @@ function HomeRoutes() {
             },
             
           }}
-          name="Menu" 
-          component={SettingsScreen} 
+          name="Menu"
+          component={SettingsScreen}
+          listeners={{
+            tabPress: e => {
+              e.preventDefault();
+              navigation.dispatch(DrawerActions.openDrawer());
+            }
+          }}
+          
         />
                 
       </Tab.Navigator>
