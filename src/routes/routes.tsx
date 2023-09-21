@@ -91,6 +91,25 @@ function AppDrawer() {
           title: 'Perfil',
         }}
       />
+
+      <Stack.Screen     
+        name="Treinos" 
+        component={TrainingStackScreen} 
+        options={{
+          title: 'Treinos',
+        }}
+
+      />
+
+    <Drawer.Screen 
+      name="Sair" 
+      component={Login} 
+      options={{
+        headerShown: false,
+        drawerLabel: 'Sair',
+        swipeEnabled: false,
+      }}
+      />
       
     </Drawer.Navigator>
   );
@@ -119,7 +138,10 @@ const TrainingStackScreen = ({ navigation }: any) => (
             color="#FF6900"
             size={24}
             style={{ marginLeft: 16 }}
-            onPress={() => navigation.goBack()}
+            onPress={() => {
+              navigation.goBack(), 
+              navigation.navigate('Home')
+            }}
           />
         ),
       }}
