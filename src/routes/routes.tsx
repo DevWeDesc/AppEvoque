@@ -12,6 +12,8 @@ import SettingsScreen from '../screens/SettingsScreen';
 import Training from '../screens/Training';
 import Person from '../screens/Person';
 import Login from '../screens/Login';
+import Invoices from '../screens/Invoices';
+import PlanDetail from '../screens/PlanDetail';
 
 
 const Drawer = createDrawerNavigator();
@@ -49,10 +51,63 @@ const PersonStackScreen = ({ navigation }: any) => (
   </Stack.Navigator>
 );
 
-function AppDrawer() {
+const InvoicesStackScreen = () => {
+  const navigation = useNavigation();
+  return(
+    <Stack.Navigator>
+    <Stack.Screen
+        name="Invoices" 
+        component={Invoices} 
+        options={{
+          title: 'Finanças',
+          headerShown: true,
+          headerStyle:{
+            backgroundColor: '#2A2C33',
+            shadowColor: 'transparent',
+          },
+          headerTintColor: '#FF6900',
+          headerTitleStyle: {
+            fontSize: 16,
+            fontWeight: 'bold',
+          },
+          headerTitleAlign: 'center',
+          headerLeft: () => (
+            <Feather
+            name="arrow-left"
+            color="#FF6900"
+            size={24}
+            style={{ marginLeft: 16 }}
+              onPress={() => navigation.navigate('Home' as never)}
+              />
+          ),
+         }}
+         />
+      <Stack.Screen
+        name="PlanDetail" 
+        component={PlanDetail} 
+        options={{
+          title: 'Detalhes do Plano',
+          headerShown: true,
+          headerStyle:{
+            backgroundColor: '#2A2C33',
+            shadowColor: 'transparent',
+          },
+          headerTintColor: '#FF6900',
+          headerTitleStyle: {
+            fontSize: 16,
+            fontWeight: 'bold',
+          },
+          headerTitleAlign: 'center',
+          headerLeftLabelVisible: false,
+          
+          }}
+          />
+  </Stack.Navigator>
+)
+};
 
-  const includeLoginRoute = false
- 
+function AppDrawer() {
+  
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -99,6 +154,13 @@ function AppDrawer() {
           title: 'Treinos',
         }}
 
+      />
+      <Stack.Screen
+        name="Invoices"
+        options={{
+          title: 'Finanças'
+        }}
+        component={InvoicesStackScreen} 
       />
 
     <Drawer.Screen 
