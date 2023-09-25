@@ -12,8 +12,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 import Training from '../screens/Training';
 import Person from '../screens/Person';
 import Login from '../screens/Login';
-import Invoices from '../screens/Invoices';
-import PlanDetail from '../screens/PlanDetail';
+import Invoices from '../screens/Plans';
 
 
 const Drawer = createDrawerNavigator();
@@ -56,52 +55,32 @@ const InvoicesStackScreen = () => {
   return(
     <Stack.Navigator>
     <Stack.Screen
-        name="Invoices" 
-        component={Invoices} 
-        options={{
-          title: 'Finanças',
-          headerShown: true,
-          headerStyle:{
-            backgroundColor: '#2A2C33',
-            shadowColor: 'transparent',
-          },
-          headerTintColor: '#FF6900',
-          headerTitleStyle: {
-            fontSize: 16,
-            fontWeight: 'bold',
-          },
-          headerTitleAlign: 'center',
-          headerLeft: () => (
-            <Feather
-            name="arrow-left"
-            color="#FF6900"
-            size={24}
-            style={{ marginLeft: 16 }}
-              onPress={() => navigation.navigate('Home' as never)}
-              />
-          ),
-         }}
-         />
-      <Stack.Screen
-        name="PlanDetail" 
-        component={PlanDetail} 
-        options={{
-          title: 'Detalhes do Plano',
-          headerShown: true,
-          headerStyle:{
-            backgroundColor: '#2A2C33',
-            shadowColor: 'transparent',
-          },
-          headerTintColor: '#FF6900',
-          headerTitleStyle: {
-            fontSize: 16,
-            fontWeight: 'bold',
-          },
-          headerTitleAlign: 'center',
-          headerLeftLabelVisible: false,
-          
-          }}
-          />
+      name="PlansStack" 
+      component={Invoices} 
+      options={{
+        title: 'Planos',
+        headerShown: true,
+        headerStyle:{
+          backgroundColor: '#2A2C33',
+          shadowColor: 'transparent',
+        },
+        headerTintColor: '#FF6900',
+        headerTitleStyle: {
+          fontSize: 16,
+          fontWeight: 'bold',
+        },
+        headerTitleAlign: 'center',
+        headerLeft: () => (
+          <Feather
+          name="arrow-left"
+          color="#FF6900"
+          size={24}
+          style={{ marginLeft: 16 }}
+            onPress={() => navigation.navigate('Home' as never)}
+            />
+        ),
+      }}
+    />
   </Stack.Navigator>
 )
 };
@@ -156,9 +135,9 @@ function AppDrawer() {
 
       />
       <Stack.Screen
-        name="Invoices"
+        name="Plans"
         options={{
-          title: 'Finanças'
+          title: 'Planos'
         }}
         component={InvoicesStackScreen} 
       />

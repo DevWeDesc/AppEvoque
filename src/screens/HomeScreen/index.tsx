@@ -67,11 +67,11 @@ export default function HomeScreen({ navigation }: LoginProps) {
           <Text style={styles.cardText}>Perfil</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.card} onPress={ () => navigation.navigate('Invoices')}>
+        <TouchableOpacity style={styles.card} onPress={ () => navigation.navigate('Plans')}>
           <View style={styles.cardIcon}>
             <FontAwesome name="dollar" color="#FF6900" size={25} />
           </View>
-          <Text style={styles.cardText}>Faturas</Text>
+          <Text style={styles.cardText}>Planos</Text>
         </TouchableOpacity>
         
       </View>

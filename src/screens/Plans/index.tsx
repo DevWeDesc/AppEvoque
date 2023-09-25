@@ -3,7 +3,7 @@ import { View, Text, ImageBackground, StyleSheet, TouchableOpacity } from "react
 export default function Invoices({ navigation}: any) {
   return (
     <ImageBackground source={require('../../assets/images/bg2.jpg')} style={styles.containerHeader}>
-      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('PlanDetail')}>
+      <TouchableOpacity style={styles.card}>
         <View style={styles.cardLayout}>
           <Text style={styles.textStatus}>PLANO ATIVO</Text>
           <Text style={styles.textValue}>R$ 369,00</Text>
