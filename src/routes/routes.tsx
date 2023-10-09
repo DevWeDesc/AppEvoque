@@ -32,7 +32,7 @@ const PersonStackScreen = ({ navigation }: any) => (
           backgroundColor: "#2A2C33",
           shadowColor: "transparent",
         },
-        headerTintColor: "#FF6900",
+        headerTintColor: "#FFF",
         headerTitleStyle: {
           fontSize: 16,
           fontWeight: "bold",
@@ -41,7 +41,7 @@ const PersonStackScreen = ({ navigation }: any) => (
         headerLeft: () => (
           <Feather
             name="arrow-left"
-            color="#FF6900"
+            color="#FFF"
             size={24}
             style={{ marginLeft: 16 }}
             onPress={() => navigation.navigate("Home")}
@@ -63,10 +63,10 @@ const InvoicesStackScreen = () => {
           title: "Planos",
           headerShown: true,
           headerStyle: {
-            backgroundColor: "#2A2C33",
+            backgroundColor: "#1E1E1E",
             shadowColor: "transparent",
           },
-          headerTintColor: "#FF6900",
+          headerTintColor: "#FFF",
           headerTitleStyle: {
             fontSize: 16,
             fontWeight: "bold",
@@ -75,7 +75,7 @@ const InvoicesStackScreen = () => {
           headerLeft: () => (
             <Feather
               name="arrow-left"
-              color="#FF6900"
+              color="#FFF"
               size={24}
               style={{ marginLeft: 16 }}
               onPress={() => navigation.navigate("Home" as never)}
@@ -93,10 +93,10 @@ function AppDrawer() {
       screenOptions={{
         headerShown: false,
         drawerStyle: {
-          backgroundColor: "#2A2C33",
+          backgroundColor: "#1E1E1E",
           width: 240,
         },
-        drawerActiveBackgroundColor: "#FF6900",
+        drawerActiveBackgroundColor: "#FFF",
         drawerActiveTintColor: "#FFF",
         drawerInactiveTintColor: "#FFF",
       }}
@@ -163,10 +163,10 @@ const TrainingStackScreen = ({ navigation }: any) => (
       options={{
         title: "Treinos",
         headerStyle: {
-          backgroundColor: "#2A2C33",
+          backgroundColor: "#1E1E1E",
           shadowColor: "transparent",
         },
-        headerTintColor: "#FF6900",
+        headerTintColor: "#FFF",
         headerTitleStyle: {
           fontSize: 16,
           fontWeight: "bold",
@@ -175,7 +175,7 @@ const TrainingStackScreen = ({ navigation }: any) => (
         headerLeft: () => (
           <Feather
             name="arrow-left"
-            color="#FF6900"
+            color="#FFF"
             size={24}
             style={{ marginLeft: 16 }}
             onPress={() => {
@@ -198,18 +198,18 @@ function HomeRoutes() {
         initialRouteName="Home"
         screenOptions={{
           tabBarStyle: {
-            backgroundColor: "#2A2C33",
-            borderTopColor: "rgba(255, 105, 0, 1.4)",
+            backgroundColor: "#1E1E1E",
+            borderTopColor: "#FFF",
             height: Platform.OS === "ios" ? 90 : 70,
           },
-          tabBarActiveTintColor: "#FFF",
+          tabBarActiveTintColor: "#9f9f9f",
         }}
       >
         <Tab.Screen
           options={{
             headerShown: false,
             tabBarIcon: () => (
-              <FontAwesome5 name="home" color="#FF6900" size={25} />
+              <FontAwesome5 name="home" color="#FFF" size={25} />
             ),
             tabBarLabelStyle: {
               fontSize: 16,
@@ -224,7 +224,7 @@ function HomeRoutes() {
           options={{
             headerShown: false,
             tabBarIcon: () => (
-              <FontAwesome5 name="dumbbell" color="#FF6900" size={24} />
+              <FontAwesome5 name="dumbbell" color="#FFF" size={24} />
             ),
             tabBarLabelStyle: {
               fontSize: 16,
@@ -243,14 +243,14 @@ function HomeRoutes() {
               height: 60,
             },
             tabBarIcon: () => (
-              <FontAwesome5 name="bars" color="#FF6900" size={24} />
+              <FontAwesome5 name="bars" color="#FFF" size={24} />
             ),
             tabBarLabelStyle: {
               fontSize: 16,
               marginBottom: Platform.OS === "ios" ? 0 : 10,
             },
           }}
-          name="Menu"
+          name="d"
           component={SettingsScreen}
           listeners={{
             tabPress: (e) => {

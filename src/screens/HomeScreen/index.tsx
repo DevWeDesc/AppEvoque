@@ -10,6 +10,9 @@ import { NativeBaseProvider } from "native-base";
 import React from "react";
 import { ScrollView } from "react-native-gesture-handler";
 import postImage from "../../assets/images/postred.png";
+import Icon from "react-native-vector-icons/AntDesign";
+import IconEvil from "react-native-vector-icons/EvilIcons";
+import IconIon from "react-native-vector-icons/Ionicons";
 
 export default function HomeScreen({ navigation }: LoginProps) {
   let [fontsLoaded, fontError] = useFonts({
@@ -47,6 +50,11 @@ export default function HomeScreen({ navigation }: LoginProps) {
                 </View>
                 <Image style={styles.imagePost} source={postImage} />
                 <View style={styles.containerUser}>
+                  <Icon name="hearto" size={25} color="#FFF" />
+                  <IconEvil name="comment" size={37} color="#FFF" />
+                  <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
+                </View>
+                <View style={styles.containerUser}>
                   <Text style={styles.nameUser}>Udemy</Text>
                   <Text style={styles.titleUser}>
                     Cursos a partir de R$ 29,99!!
@@ -66,6 +74,17 @@ export default function HomeScreen({ navigation }: LoginProps) {
                   </View>
                 </View>
                 <Image style={styles.imagePost} source={postImage} />
+                <View style={styles.containerUser}>
+                  <Icon name="hearto" size={25} color="#FFF" />
+                  <IconEvil name="comment" size={37} color="#FFF" />
+                  <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
+                </View>
+                <View style={styles.containerUser}>
+                  <Text style={styles.nameUser}>Udemy</Text>
+                  <Text style={styles.titleUser}>
+                    Cursos a partir de R$ 29,99!!
+                  </Text>
+                </View>
                 <View style={styles.containerUser}>
                   <Text style={styles.nameUser}>Udemy</Text>
                   <Text style={styles.titleUser}>
