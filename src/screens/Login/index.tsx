@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  SafeAreaView,
 } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
@@ -24,7 +25,7 @@ export default function Login({ navigation }: LoginProps) {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image
         source={require("../../assets/images/evoque.png")}
         style={styles.image}
@@ -59,7 +60,7 @@ export default function Login({ navigation }: LoginProps) {
         </Text>
       </View>
       <StatusBar style="light" translucent />
-    </View>
+    </SafeAreaView>
   );
 }
 
