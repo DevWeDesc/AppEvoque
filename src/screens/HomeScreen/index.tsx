@@ -7,7 +7,7 @@ import {
 } from "@expo-google-fonts/kanit";
 import { LoginProps } from "../Login";
 import { NativeBaseProvider } from "native-base";
-import React from "react";
+import React, { useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
 import postImage from "../../assets/images/postred.png";
 import Icon from "react-native-vector-icons/AntDesign";
@@ -15,6 +15,7 @@ import IconEvil from "react-native-vector-icons/EvilIcons";
 import IconIon from "react-native-vector-icons/Ionicons";
 
 export default function HomeScreen({ navigation }: LoginProps) {
+  const [like, setLike] = useState(false);
   let [fontsLoaded, fontError] = useFonts({
     Kanit_400Regular,
     Kanit_700Bold,
@@ -50,7 +51,21 @@ export default function HomeScreen({ navigation }: LoginProps) {
                 </View>
                 <Image style={styles.imagePost} source={postImage} />
                 <View style={styles.containerUser}>
-                  <Icon name="hearto" size={25} color="#FFF" />
+                  {like ? (
+                    <Icon
+                      onPress={() => setLike(false)}
+                      name="hearto"
+                      size={25}
+                      color="#FFF"
+                    />
+                  ) : (
+                    <Icon
+                      onPress={() => setLike(true)}
+                      name="heart"
+                      size={25}
+                      color="#FFF"
+                    />
+                  )}
                   <IconEvil name="comment" size={37} color="#FFF" />
                   <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
                 </View>
@@ -75,15 +90,23 @@ export default function HomeScreen({ navigation }: LoginProps) {
                 </View>
                 <Image style={styles.imagePost} source={postImage} />
                 <View style={styles.containerUser}>
-                  <Icon name="hearto" size={25} color="#FFF" />
+                  {like ? (
+                    <Icon
+                      onPress={() => setLike(false)}
+                      name="hearto"
+                      size={25}
+                      color="#FFF"
+                    />
+                  ) : (
+                    <Icon
+                      onPress={() => setLike(true)}
+                      name="heart"
+                      size={25}
+                      color="#FFF"
+                    />
+                  )}
                   <IconEvil name="comment" size={37} color="#FFF" />
                   <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
-                </View>
-                <View style={styles.containerUser}>
-                  <Text style={styles.nameUser}>Udemy</Text>
-                  <Text style={styles.titleUser}>
-                    Cursos a partir de R$ 29,99!!
-                  </Text>
                 </View>
                 <View style={styles.containerUser}>
                   <Text style={styles.nameUser}>Udemy</Text>
@@ -123,6 +146,7 @@ const styles = StyleSheet.create({
   },
   containerAllPosts: {
     gap: 10,
+    marginBottom: 40,
   },
   containerPost: {
     flexDirection: "row",
