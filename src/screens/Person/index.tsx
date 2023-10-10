@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   ImageBackground,
   ScrollView,
+  SafeAreaView,
+  StatusBar,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";
@@ -27,147 +29,161 @@ export default function Perfil({ navigation }: any) {
     password: "123456",
   });
   return (
-    <ScrollView style={styles.container}>
-      <View
-        style={{
-          flexDirection: "column",
-
-          alignItems: "center",
-        }}
-      >
-        <TouchableOpacity
-          activeOpacity={0.6}
+    <SafeAreaView>
+      <ScrollView style={styles.container}>
+        <View
           style={{
-            flexDirection: "row",
-            gap: 5,
-            justifyContent: "center",
-            maxWidth: 400,
+            flexDirection: "column",
+            alignItems: "center",
+            marginBottom: 38,
           }}
         >
-          <Image
-            source={require("../../assets/images/rodrigo.jpg")}
-            style={styles.imagemPerfil}
-          />
-          <TouchableOpacity style={styles.iconPhoto}>
-            <MaterialIcons name="photo-camera" size={24} color="#1E1E1E" />
-          </TouchableOpacity>
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={0.6}
-          style={{
-            paddingVertical: 5,
-            paddingHorizontal: 20,
-            borderRadius: 20,
-            backgroundColor: "#000",
-            shadowColor: "#FFF",
-            shadowOpacity: 0.3,
-            shadowOffset: 1,
-            marginBottom: 10,
-          }}
-        >
-          <Text
+          <View
             style={{
-              color: "#FFF",
-              fontWeight: "bold",
-              fontSize: 16,
+              flexDirection: "row",
+              gap: 5,
+              justifyContent: "center",
+              maxWidth: 400,
             }}
           >
-            {userInfo.office}
+            <Image
+              source={require("../../assets/images/rodrigo.jpg")}
+              style={styles.imagemPerfil}
+            />
+            <TouchableOpacity activeOpacity={0.65} style={styles.iconPhoto}>
+              <MaterialIcons name="photo-camera" size={24} color="#1E1E1E" />
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity
+            activeOpacity={0.6}
+            style={{
+              paddingVertical: 5,
+              paddingHorizontal: 20,
+              borderRadius: 20,
+              backgroundColor: "#000",
+              shadowColor: "#FFF",
+              shadowOpacity: 0.3,
+              shadowOffset: 1,
+              marginBottom: 10,
+            }}
+          >
+            <Text
+              style={{
+                color: "#FFF",
+                fontWeight: "bold",
+                fontSize: 16,
+              }}
+            >
+              {userInfo.office}
+            </Text>
+          </TouchableOpacity>
+          <Text style={{ color: "#FFF", fontWeight: "bold", fontSize: 18 }}>
+            {userInfo.name}
           </Text>
+        </View>
+        <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 20 }}
+            >
+              <Image source={require("../../assets/images/user.png")} />
+              <Text style={{ color: "#FFF" }}>Minha Conta</Text>
+            </View>
+            <Image source={require("../../assets/images/arrowRight.png")} />
+          </View>
         </TouchableOpacity>
-        <Text style={{ color: "#FFF", fontWeight: "bold", fontSize: 18 }}>
-          {userInfo.name}
-        </Text>
-      </View>
-      <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
-            <Image source={require("../../assets/images/user.png")} />
-            <Text style={{ color: "#FFF" }}>Minha Conta</Text>
+        <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 20 }}
+            >
+              <Image source={require("../../assets/images/Question.png")} />
+              <Text style={{ color: "#FFF" }}>Dúvidas Frequentes</Text>
+            </View>
+            <Image source={require("../../assets/images/arrowRight.png")} />
           </View>
-          <Image source={require("../../assets/images/arrowRight.png")} />
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
-            <Image source={require("../../assets/images/Question.png")} />
-            <Text style={{ color: "#FFF" }}>Dúvidas Frequentes</Text>
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 20 }}
+            >
+              <Image source={require("../../assets/images/contact.png")} />
+              <Text style={{ color: "#FFF" }}>Fale Conosco</Text>
+            </View>
+            <Image source={require("../../assets/images/arrowRight.png")} />
           </View>
-          <Image source={require("../../assets/images/arrowRight.png")} />
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
-            <Image source={require("../../assets/images/contact.png")} />
-            <Text style={{ color: "#FFF" }}>Fale Conosco</Text>
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 20 }}
+            >
+              <Image source={require("../../assets/images/file-text.png")} />
+              <Text style={{ color: "#FFF" }}>Termos de Uso</Text>
+            </View>
+            <Image source={require("../../assets/images/arrowRight.png")} />
           </View>
-          <Image source={require("../../assets/images/arrowRight.png")} />
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
-            <Image source={require("../../assets/images/file-text.png")} />
-            <Text style={{ color: "#FFF" }}>Termos de Uso</Text>
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 20 }}
+            >
+              <Image source={require("../../assets/images/info.png")} />
+              <Text style={{ color: "#FFF" }}>Aviso de Privacidade</Text>
+            </View>
+            <Image source={require("../../assets/images/arrowRight.png")} />
           </View>
-          <Image source={require("../../assets/images/arrowRight.png")} />
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.6}
+          onPress={handleLogin}
+          style={{ padding: 20, marginTop: 17 }}
         >
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
-            <Image source={require("../../assets/images/info.png")} />
-            <Text style={{ color: "#FFF" }}>Aviso de Privacidade</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 20 }}
+            >
+              <Image source={require("../../assets/images/log-out.png")} />
+              <Text style={{ color: "#FFF" }}>Sair</Text>
+            </View>
+            <Image source={require("../../assets/images/arrowRight.png")} />
           </View>
-          <Image source={require("../../assets/images/arrowRight.png")} />
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity
-        activeOpacity={0.6}
-        onPress={handleLogin}
-        style={{ padding: 20, marginTop: 17 }}
-      >
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
-            <Image source={require("../../assets/images/log-out.png")} />
-            <Text style={{ color: "#FFF" }}>Sair</Text>
-          </View>
-          <Image source={require("../../assets/images/arrowRight.png")} />
-        </View>
-      </TouchableOpacity>
-    </ScrollView>
+        </TouchableOpacity>
+      </ScrollView>
+      <StatusBar translucent />
+    </SafeAreaView>
   );
 }
 

@@ -47,7 +47,11 @@ export const Register = ({ navigation }: any) => {
           value={password}
           placeholderTextColor={"#fff"}
         />
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <TouchableOpacity
+          activeOpacity={0.65}
+          style={styles.button}
+          onPress={handleLogin}
+        >
           <Text style={styles.textButton}>Cadastrar</Text>
         </TouchableOpacity>
         <View style={styles.register}>

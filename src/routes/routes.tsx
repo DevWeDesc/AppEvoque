@@ -6,6 +6,7 @@ import Login from "../screens/Login";
 import Perfil from "../screens/Person";
 import Invoices from "../screens/Plans";
 import Treinos from "../screens/Training";
+import { PostUsers } from "../screens/PostUsers";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,9 +17,10 @@ function AppNavigator() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Perfil" component={Perfil} />
+        <Stack.Screen name="Meu Perfil" component={Perfil} />
         <Stack.Screen name="Invoices" component={Invoices} />
         <Stack.Screen name="Treinos" component={Treinos} />
+        <Stack.Screen name="Novo Post" component={PostUsers} />
       </Stack.Navigator>
     </NavigationContainer>
   );

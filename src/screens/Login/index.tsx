@@ -21,7 +21,7 @@ export default function Login({ navigation }: LoginProps) {
 
   const handleLogin = () => {
     console.log(`Email: ${email}, Senha: ${password}`);
-    navigation.navigate("Perfil");
+    navigation.navigate("Novo Post");
   };
   const handleRegister = () => {
     navigation.navigate("Register");
@@ -49,7 +49,11 @@ export default function Login({ navigation }: LoginProps) {
           value={password}
           placeholderTextColor={"#fff"}
         />
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <TouchableOpacity
+          activeOpacity={0.65}
+          style={styles.button}
+          onPress={handleLogin}
+        >
           <Text style={styles.textButton}>Entrar</Text>
         </TouchableOpacity>
         <View style={styles.loginOther}>
