@@ -21,46 +21,59 @@ export const Register = ({ navigation }: any) => {
   return (
     <SafeAreaView style={styles.container}>
       <Image
-        source={require("../../assets/images/evoque.png")}
-        style={styles.image}
-      />
-      <View>
-        <TextInput
-          style={styles.input}
-          placeholder="Seu Nome"
-          onChangeText={setName}
-          value={name}
-          placeholderTextColor={"#fff"}
+        style={{ position: "absolute", opacity: 0.7 }}
+        source={require("../../assets/images/ImgEvoque.png")}
+      ></Image>
+      <View
+        style={{
+          width: "100%",
+          height: "100%",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Image
+          source={require("../../assets/images/evoque.png")}
+          style={styles.image}
         />
-        <TextInput
-          style={styles.input}
-          placeholder="exemplo@gmail.com"
-          onChangeText={setEmail}
-          value={email}
-          placeholderTextColor={"#fff"}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="*******"
-          secureTextEntry
-          onChangeText={setPassword}
-          value={password}
-          placeholderTextColor={"#fff"}
-        />
-        <TouchableOpacity
-          activeOpacity={0.65}
-          style={styles.button}
-          onPress={handleLogin}
-        >
-          <Text style={styles.textButton}>Cadastrar</Text>
-        </TouchableOpacity>
-        <View style={styles.register}>
-          <Text style={styles.textLogout}>Já possui uma conta?</Text>
-          <TouchableOpacity activeOpacity={0.65}>
-            <Text style={styles.textLogoutCad} onPress={handleLogin}>
-              Faça o Login
-            </Text>
+        <View>
+          <TextInput
+            style={styles.input}
+            placeholder="Seu Nome"
+            onChangeText={setName}
+            value={name}
+            placeholderTextColor={"#fff"}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="exemplo@gmail.com"
+            onChangeText={setEmail}
+            value={email}
+            placeholderTextColor={"#fff"}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="*******"
+            secureTextEntry
+            onChangeText={setPassword}
+            value={password}
+            placeholderTextColor={"#fff"}
+          />
+          <TouchableOpacity
+            activeOpacity={0.65}
+            style={styles.button}
+            onPress={handleLogin}
+          >
+            <Text style={styles.textButton}>Cadastrar</Text>
           </TouchableOpacity>
+          <View style={styles.register}>
+            <Text style={styles.textLogout}>Já possui uma conta?</Text>
+            <TouchableOpacity activeOpacity={0.65}>
+              <Text style={styles.textLogoutCad} onPress={handleLogin}>
+                Faça o Login
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
       <StatusBar translucent />
@@ -80,7 +93,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#000",
-    justifyContent: "center",
     alignItems: "center",
   },
   title: {
