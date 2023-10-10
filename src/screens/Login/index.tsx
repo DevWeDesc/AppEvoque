@@ -12,6 +12,7 @@ import {
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
 import { position } from "native-base/lib/typescript/theme/styled-system";
+import { useNavigation } from "@react-navigation/native";
 
 export interface LoginProps {
   navigation: StackNavigationProp<any>;
@@ -20,10 +21,15 @@ export interface LoginProps {
 export default function Login({ navigation }: LoginProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { reset } = useNavigation();
 
   const handleLogin = () => {
     console.log(`Email: ${email}, Senha: ${password}`);
     navigation.navigate("Sessão de Treinos");
+    // reset({
+    //   index: 0,
+    //   routes: [{ name: "Sessão de Treinos" }],
+    // });
   };
   const handleRegister = () => {
     navigation.navigate("Register");
@@ -34,7 +40,7 @@ export default function Login({ navigation }: LoginProps) {
       <Image
         style={{ position: "absolute", opacity: 0.7 }}
         source={require("../../assets/images/ImgEvoque.png")}
-      ></Image>
+      />
       <View
         style={{
           width: "100%",
