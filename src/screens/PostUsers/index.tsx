@@ -1,11 +1,18 @@
-import { View, Text, Image, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native";
 
 export const PostUsers = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#1E1E1E" }}>
-      <View
+      <ScrollView
         style={{
           paddingHorizontal: 20,
           marginTop: 20,
@@ -45,12 +52,48 @@ export const PostUsers = () => {
               paddingVertical: 15,
               borderRadius: 8,
               color: "white",
-              minHeight: 86,
+              minHeight: 56,
             }}
             placeholder="Insira sua Descrição..."
           />
+          <View
+            style={{
+              minHeight: 309,
+              borderRadius: 8,
+              backgroundColor: "#424242",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Image
+              style={{ width: 60, height: 60, objectFit: "contain" }}
+              source={require("../../assets/images/plus.png")}
+            />
+            <Text style={{ color: "#FFF" }}>
+              Adicione uma foto para sua Postagem!!
+            </Text>
+          </View>
+          <TouchableOpacity
+            activeOpacity={0.65}
+            style={{
+              backgroundColor: "#FFF",
+              paddingVertical: 20,
+              borderRadius: 8,
+              marginBottom: 20,
+            }}
+          >
+            <Text
+              style={{
+                fontWeight: "bold",
+                textAlign: "center",
+              }}
+            >
+              Publicar
+            </Text>
+          </TouchableOpacity>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

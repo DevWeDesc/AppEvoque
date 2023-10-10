@@ -19,7 +19,7 @@ function AppNavigator() {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Meu Perfil" component={Perfil} />
         <Stack.Screen name="Invoices" component={Invoices} />
-        <Stack.Screen name="Treinos" component={Treinos} />
+        <Stack.Screen name="Sessão de Treinos" component={Treinos} />
         <Stack.Screen name="Novo Post" component={PostUsers} />
       </Stack.Navigator>
     </NavigationContainer>

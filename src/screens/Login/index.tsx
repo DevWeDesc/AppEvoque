@@ -21,7 +21,7 @@ export default function Login({ navigation }: LoginProps) {
 
   const handleLogin = () => {
     console.log(`Email: ${email}, Senha: ${password}`);
-    navigation.navigate("Novo Post");
+    navigation.navigate("Sessão de Treinos");
   };
   const handleRegister = () => {
     navigation.navigate("Register");
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   viewOu: { height: 1, backgroundColor: "white", width: "33%", marginTop: 15 },
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#1E1E1E",
     justifyContent: "center",
     alignItems: "center",
   },
