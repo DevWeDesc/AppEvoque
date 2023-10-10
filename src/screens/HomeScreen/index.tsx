@@ -8,7 +8,7 @@ import {
 import { LoginProps } from "../Login";
 import { NativeBaseProvider } from "native-base";
 import React, { useState } from "react";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import postImage from "../../assets/images/postred.png";
 import Icon from "react-native-vector-icons/AntDesign";
 import IconEvil from "react-native-vector-icons/EvilIcons";
@@ -25,6 +25,10 @@ export default function HomeScreen({ navigation }: LoginProps) {
   if (!fontsLoaded && !fontError) {
     return null;
   }
+
+  const handleLike = () => {
+    like ? setLike(false) : setLike(true);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -51,21 +55,13 @@ export default function HomeScreen({ navigation }: LoginProps) {
                 </View>
                 <Image style={styles.imagePost} source={postImage} />
                 <View style={styles.containerUser}>
-                  {like ? (
-                    <Icon
-                      onPress={() => setLike(false)}
-                      name="hearto"
-                      size={25}
-                      color="#FFF"
-                    />
-                  ) : (
-                    <Icon
-                      onPress={() => setLike(true)}
-                      name="heart"
-                      size={25}
-                      color="#FFF"
-                    />
-                  )}
+                  <TouchableOpacity onPress={handleLike}>
+                    {like ? (
+                      <Icon name="hearto" size={25} color="#FFF" />
+                    ) : (
+                      <Icon name="heart" size={25} color="#FFF" />
+                    )}
+                  </TouchableOpacity>
                   <IconEvil name="comment" size={37} color="#FFF" />
                   <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
                 </View>
@@ -90,21 +86,13 @@ export default function HomeScreen({ navigation }: LoginProps) {
                 </View>
                 <Image style={styles.imagePost} source={postImage} />
                 <View style={styles.containerUser}>
-                  {like ? (
-                    <Icon
-                      onPress={() => setLike(false)}
-                      name="hearto"
-                      size={25}
-                      color="#FFF"
-                    />
-                  ) : (
-                    <Icon
-                      onPress={() => setLike(true)}
-                      name="heart"
-                      size={25}
-                      color="#FFF"
-                    />
-                  )}
+                  <TouchableOpacity onPress={handleLike}>
+                    {like ? (
+                      <Icon name="hearto" size={25} color="#FFF" />
+                    ) : (
+                      <Icon name="heart" size={25} color="#FFF" />
+                    )}
+                  </TouchableOpacity>
                   <IconEvil name="comment" size={37} color="#FFF" />
                   <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
                 </View>
@@ -133,7 +121,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#1E1E1E",
     borderBottom: 1,
     borderColor: "#535353",
-    paddingVertical: 13.5,
+    paddingVertical: 8,
     paddingHorizontal: 20,
     flexDirection: "row",
     justifyContent: "space-between",

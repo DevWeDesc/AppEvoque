@@ -17,7 +17,6 @@ import Training from "../screens/Training";
 import Person from "../screens/Person";
 import Login from "../screens/Login";
 import Invoices from "../screens/Plans";
-import { Register } from "../screens/Register";
 
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -115,13 +114,6 @@ function AppDrawer() {
       <Drawer.Screen
         name="Home"
         component={HomeRoutes}
-        options={{
-          title: "Inicio",
-        }}
-      />
-      <Drawer.Screen
-        name="Register"
-        component={Register}
         options={{
           title: "Inicio",
         }}

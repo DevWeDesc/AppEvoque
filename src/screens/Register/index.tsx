@@ -1,32 +1,23 @@
 import React, { useState } from "react";
 import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
   SafeAreaView,
+  View,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+  Image,
+  Text,
+  StyleSheet,
 } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { StatusBar } from "expo-status-bar";
 
-export interface LoginProps {
-  navigation: StackNavigationProp<any>;
-}
-
-export default function Login({ navigation }: LoginProps) {
+export const Register = ({ navigation }: any) => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    console.log(`Email: ${email}, Senha: ${password}`);
-    navigation.navigate("Home");
+    navigation.navigate("Login");
   };
-  const handleRegister = () => {
-    navigation.navigate("Register");
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <Image
@@ -34,6 +25,13 @@ export default function Login({ navigation }: LoginProps) {
         style={styles.image}
       />
       <View>
+        <TextInput
+          style={styles.input}
+          placeholder="Seu Nome"
+          onChangeText={setName}
+          value={name}
+          placeholderTextColor={"#fff"}
+        />
         <TextInput
           style={styles.input}
           placeholder="exemplo@gmail.com"
@@ -50,24 +48,21 @@ export default function Login({ navigation }: LoginProps) {
           placeholderTextColor={"#fff"}
         />
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.textButton}>Entrar</Text>
+          <Text style={styles.textButton}>Cadastrar</Text>
         </TouchableOpacity>
-        <View style={styles.loginOther}>
-          <View style={styles.viewOu}></View>
-          <Text style={styles.textOU}>OU</Text>
-          <View style={styles.viewOu}></View>
-        </View>
         <View style={styles.register}>
-          <Text style={styles.textLogout}>Não tem mais conta?</Text>
-          <TouchableOpacity activeOpacity={0.65} onPress={handleRegister}>
-            <Text style={styles.textLogoutCad}>Cadastre-se</Text>
+          <Text style={styles.textLogout}>Já possui uma conta?</Text>
+          <TouchableOpacity activeOpacity={0.65}>
+            <Text style={styles.textLogoutCad} onPress={handleLogin}>
+              Faça o Login
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
-      <StatusBar style="light" translucent />
+      <StatusBar translucent />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   loginOther: {
@@ -114,27 +109,21 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 8,
   },
-  textButton: {
-    color: "#000",
-    fontWeight: "bold",
-  },
-  textOU: {
-    marginTop: 12,
-    textAlign: "center",
-    color: "white",
-  },
-  textLogout: {
-    textAlign: "center",
-    color: "white",
-  },
   register: {
     marginTop: 15,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
   },
+  textButton: {
+    color: "#000",
+    fontWeight: "bold",
+  },
+  textLogout: {
+    textAlign: "center",
+    color: "white",
+  },
   textLogoutCad: {
-    marginVertical: 0,
     marginLeft: 5,
     color: "#FFF",
     fontWeight: "bold",
