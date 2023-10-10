@@ -7,8 +7,8 @@ import Perfil from "../screens/Person";
 import Invoices from "../screens/Plans";
 import Treinos from "../screens/Training";
 import { PostUsers } from "../screens/PostUsers";
-import { SplashScreen } from "../screens/Splash";
-import { createStackNavigator } from "@react-navigation/stack";
+import { SplashInit } from "../screens/Splash";
+import { SplashScreen } from "../screens/Splash/Splash";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,9 +17,14 @@ function AppNavigator() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="SplashInit"
+          component={SplashInit}
+          options={{ headerShown: false, animation: "fade" }}
+        />
+        <Stack.Screen
           name="SplashScreen"
           component={SplashScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, animation: "fade" }}
         />
         <Stack.Screen
           name="Login"

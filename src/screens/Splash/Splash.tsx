@@ -3,11 +3,11 @@ import { SafeAreaView, Image } from "react-native";
 import React, { useState, useEffect } from "react";
 import Animated from "react-native-reanimated";
 
-export const SplashInit = ({ navigation }: any) => {
+export const SplashScreen = ({ navigation }: any) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate("SplashScreen");
-    }, 1000);
+      navigation.navigate("Login");
+    }, 2000);
   }, []);
 
   return (
@@ -19,6 +19,11 @@ export const SplashInit = ({ navigation }: any) => {
         alignItems: "center",
       }}
     >
+      <Animated.Image
+        sharedTransitionTag="tag"
+        style={{ width: 200, height: 200 }}
+        source={require("../../assets/images/evoque.png")}
+      />
       <StatusBar translucent />
     </SafeAreaView>
   );
