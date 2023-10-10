@@ -21,7 +21,7 @@ export default function Login({ navigation }: LoginProps) {
 
   const handleLogin = () => {
     console.log(`Email: ${email}, Senha: ${password}`);
-    navigation.navigate("Home");
+    navigation.navigate("Perfil");
   };
   const handleRegister = () => {
     navigation.navigate("Register");

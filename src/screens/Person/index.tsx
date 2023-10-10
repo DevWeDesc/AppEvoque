@@ -1,154 +1,200 @@
-import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, ImageBackground } from "react-native";
-import { MaterialIcons } from '@expo/vector-icons';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ImageBackground,
+  ScrollView,
+} from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";
+import { color } from "native-base/lib/typescript/theme/styled-system";
 
-export default function Perfil() {
+export default function Perfil({ navigation }: any) {
+  const handleLogin = () => {
+    navigation.navigate("Login");
+  };
+
   const [userInfo, setUserInfo] = useState({
-    token: 'ABC123',
-    name: 'Rodrigo',
-    email: 'rodrigo@evoke.com.br',
-    contato: '(11) 99999-9999',
-    genero: 'Masculino',
-    password: '123456'
+    token: "ABC123",
+    office: "TITULAR SEO",
+    name: "Rodrigo Hasi",
+    email: "rodrigo@evoke.com.br",
+    contato: "(11) 99999-9999",
+    genero: "Masculino",
+    password: "123456",
   });
   return (
-    <View>
-      <ImageBackground source={require('../../assets/images/bg2.jpg')} style={styles.containerHeader}>
+    <ScrollView style={styles.container}>
+      <View
+        style={{
+          flexDirection: "column",
 
-      <View>
-        <View style={{ flexDirection: 'row', gap:5, justifyContent: 'center' }}>
-        <Text style={styles.title}>
-          TOKEN:
-        </Text>
-        <Text style={styles.token}>
-        {userInfo.token}
-        </Text>
-        </View>
-        <Image
-          source={require('../../assets/images/rodrigo.jpg')}
-          style={styles.imagemPerfil}
+          alignItems: "center",
+        }}
+      >
+        <TouchableOpacity
+          activeOpacity={0.6}
+          style={{
+            flexDirection: "row",
+            gap: 5,
+            justifyContent: "center",
+            maxWidth: 400,
+          }}
+        >
+          <Image
+            source={require("../../assets/images/rodrigo.jpg")}
+            style={styles.imagemPerfil}
           />
-        <TouchableOpacity style={styles.iconPhoto}>
-          <MaterialIcons name="photo-camera" size={24} color="#FFF" />
+          <TouchableOpacity style={styles.iconPhoto}>
+            <MaterialIcons name="photo-camera" size={24} color="#1E1E1E" />
+          </TouchableOpacity>
         </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.6}
+          style={{
+            paddingVertical: 5,
+            paddingHorizontal: 20,
+            borderRadius: 20,
+            backgroundColor: "#000",
+            shadowColor: "#FFF",
+            shadowOpacity: 0.3,
+            shadowOffset: 1,
+            marginBottom: 10,
+          }}
+        >
+          <Text
+            style={{
+              color: "#FFF",
+              fontWeight: "bold",
+              fontSize: 16,
+            }}
+          >
+            {userInfo.office}
+          </Text>
+        </TouchableOpacity>
+        <Text style={{ color: "#FFF", fontWeight: "bold", fontSize: 18 }}>
+          {userInfo.name}
+        </Text>
       </View>
-          </ImageBackground>
-      <View style={styles.form}>
-        <Text style={styles.textInput}>Nome</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Nome"
-          value={userInfo.name}
-          placeholderTextColor={'#000'}
-        />
-         <Text style={styles.textInput}>Email</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          value={userInfo.email}
-          placeholderTextColor={'#000'}
-          />
-         <Text style={styles.textInput}>Contato </Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Contato"
-          value={userInfo.contato}
-          placeholderTextColor={'#000'}
-          />
-         <Text style={styles.textInput}>Gênero</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Gênero"
-          value={userInfo.genero}
-          placeholderTextColor={'#000'}
-          />
-         <Text style={styles.textInput}>Senha</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Senha"
-          secureTextEntry
-          value={userInfo.password}
-          placeholderTextColor={'#000'}
-          />
-      </View>
-
-    </View>
-  )
+      <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
+            <Image source={require("../../assets/images/user.png")} />
+            <Text style={{ color: "#FFF" }}>Minha Conta</Text>
+          </View>
+          <Image source={require("../../assets/images/arrowRight.png")} />
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
+            <Image source={require("../../assets/images/Question.png")} />
+            <Text style={{ color: "#FFF" }}>Dúvidas Frequentes</Text>
+          </View>
+          <Image source={require("../../assets/images/arrowRight.png")} />
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
+            <Image source={require("../../assets/images/contact.png")} />
+            <Text style={{ color: "#FFF" }}>Fale Conosco</Text>
+          </View>
+          <Image source={require("../../assets/images/arrowRight.png")} />
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
+            <Image source={require("../../assets/images/file-text.png")} />
+            <Text style={{ color: "#FFF" }}>Termos de Uso</Text>
+          </View>
+          <Image source={require("../../assets/images/arrowRight.png")} />
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.6} style={{ padding: 20 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
+            <Image source={require("../../assets/images/info.png")} />
+            <Text style={{ color: "#FFF" }}>Aviso de Privacidade</Text>
+          </View>
+          <Image source={require("../../assets/images/arrowRight.png")} />
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity
+        activeOpacity={0.6}
+        onPress={handleLogin}
+        style={{ padding: 20, marginTop: 17 }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
+            <Image source={require("../../assets/images/log-out.png")} />
+            <Text style={{ color: "#FFF" }}>Sair</Text>
+          </View>
+          <Image source={require("../../assets/images/arrowRight.png")} />
+        </View>
+      </TouchableOpacity>
+    </ScrollView>
+  );
 }
 
 const styles = StyleSheet.create({
-  containerHeader:{
-    width: '100%',
-    height: 300,
-    backgroundColor: '#2A2C33',
-    justifyContent: 'center',
-    alignItems: 'center',
+  container: {
+    backgroundColor: "#1E1E1E",
+    flex: 1,
   },
-  
-  imagemPerfil:{
-    width: 200,
-    height: 200,
+  imagemPerfil: {
+    width: 150,
+    height: 150,
     borderRadius: 100,
-    marginTop: 20,
-    marginBottom: 50,
-    borderColor: '#FF6900',
+    marginVertical: 20,
     borderWidth: 1,
-    alignContent: 'center',
-    alignSelf: 'center',
+    alignContent: "center",
+    alignSelf: "center",
   },
-  title:{
-    color: '#FF6900',
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: 20,
-    textAlign: 'center',
-
-  },
-  token:{
-    color: '#fff',
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: 20,
-    textAlign: 'center',
-
-  },
-  iconPhoto:{
-    backgroundColor: '#FF6900',
-    width: 50,
-    height: 50,
+  iconPhoto: {
+    backgroundColor: "#a3a3a3",
+    color: "#000",
+    width: 40,
+    height: 40,
     borderRadius: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    bottom: 50,
-    left: 140,
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    bottom: 30,
+    left: 120,
   },
-  form:{
-    paddingRight: 30,
-    paddingLeft: 30, 
-    paddingBottom: 30,
-    paddingTop: 30,
-
-
-  },
-  textInput:{
-    color: '#rgba(42, 44, 51, 0.6)',
-    fontWeight: 'bold',
-    fontSize: 18,
-
-  },
-  input:{
-    width: '100%',
-    height: 50,
-    marginBottom: 10,
-    marginLeft: 30,
-    marginRight: 30,
-    fontSize: 16,
-    alignSelf: 'center',
-    borderBottomColor: '#rgba(255, 105, 0, 0.3)',
-    borderBottomWidth: 2,
-    fontWeight: 'bold',
-
-  }
-  
 });
