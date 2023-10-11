@@ -8,13 +8,12 @@ import {
 import { LoginProps } from "../Login";
 import { NativeBaseProvider } from "native-base";
 import React, { useState } from "react";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-import postImage from "../../assets/images/postred.png";
+import { ScrollView, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import IconEvil from "react-native-vector-icons/EvilIcons";
 import IconIon from "react-native-vector-icons/Ionicons";
 
-export default function HomeScreen({ navigation }: LoginProps) {
+export function HomeScreen({ navigation }: any) {
   const [like, setLike] = useState(false);
   let [fontsLoaded, fontError] = useFonts({
     Kanit_400Regular,
@@ -32,81 +31,85 @@ export default function HomeScreen({ navigation }: LoginProps) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <NativeBaseProvider>
-        <View style={styles.containerHeader}>
-          <Image
-            source={require("../../assets/images/LogoEvoque.png")}
-            style={styles.logoHeader}
-          />
-          <Image source={require("../../assets/images/message-circle.png")} />
-        </View>
-        <ScrollView>
-          <View style={styles.containerAllPosts}>
-            <View style={styles.containerPost}>
-              <View style={styles.userPost}>
-                <View style={styles.containerUser}>
-                  <View style={styles.photoUser}>
-                    <Image source={require("../../assets/images/Logo.png")} />
-                  </View>
-                  <View style={styles.userInformations}>
-                    <Text style={styles.nameUser}>Udemy</Text>
-                    <Text style={styles.titleUser}>Patrocinado</Text>
-                  </View>
+      <View style={styles.containerHeader}>
+        <Image
+          source={require("../../assets/images/LogoEvoque.png")}
+          style={styles.logoHeader}
+        />
+        <Image source={require("../../assets/images/message-circle.png")} />
+      </View>
+      <ScrollView>
+        <View style={styles.containerAllPosts}>
+          <View style={styles.containerPost}>
+            <View style={styles.userPost}>
+              <View style={styles.containerUser}>
+                <View style={styles.photoUser}>
+                  <Image source={require("../../assets/images/Logo.png")} />
                 </View>
-                <Image style={styles.imagePost} source={postImage} />
-                <View style={styles.containerUser}>
-                  <TouchableOpacity onPress={handleLike}>
-                    {like ? (
-                      <Icon name="hearto" size={25} color="#FFF" />
-                    ) : (
-                      <Icon name="heart" size={25} color="#FFF" />
-                    )}
-                  </TouchableOpacity>
-                  <IconEvil name="comment" size={37} color="#FFF" />
-                  <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
-                </View>
-                <View style={styles.containerUser}>
+                <View style={styles.userInformations}>
                   <Text style={styles.nameUser}>Udemy</Text>
-                  <Text style={styles.titleUser}>
-                    Cursos a partir de R$ 29,99!!
-                  </Text>
+                  <Text style={styles.titleUser}>Patrocinado</Text>
                 </View>
               </View>
-            </View>
-            <View style={styles.containerPost}>
-              <View style={styles.userPost}>
-                <View style={styles.containerUser}>
-                  <View style={styles.photoUser}>
-                    <Image source={require("../../assets/images/Logo.png")} />
-                  </View>
-                  <View style={styles.userInformations}>
-                    <Text style={styles.nameUser}>Udemy</Text>
-                    <Text style={styles.titleUser}>Patrocinado</Text>
-                  </View>
-                </View>
-                <Image style={styles.imagePost} source={postImage} />
-                <View style={styles.containerUser}>
-                  <TouchableOpacity onPress={handleLike}>
-                    {like ? (
-                      <Icon name="hearto" size={25} color="#FFF" />
-                    ) : (
-                      <Icon name="heart" size={25} color="#FFF" />
-                    )}
-                  </TouchableOpacity>
-                  <IconEvil name="comment" size={37} color="#FFF" />
-                  <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
-                </View>
-                <View style={styles.containerUser}>
-                  <Text style={styles.nameUser}>Udemy</Text>
-                  <Text style={styles.titleUser}>
-                    Cursos a partir de R$ 29,99!!
-                  </Text>
-                </View>
+              <Image
+                style={styles.imagePost}
+                source={require("../../assets/images/postred.png")}
+              />
+              <View style={styles.containerUser}>
+                <TouchableOpacity onPress={handleLike}>
+                  {like ? (
+                    <Icon name="hearto" size={25} color="#FFF" />
+                  ) : (
+                    <Icon name="heart" size={25} color="#FFF" />
+                  )}
+                </TouchableOpacity>
+                <IconEvil name="comment" size={37} color="#FFF" />
+                <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
+              </View>
+              <View style={styles.containerUser}>
+                <Text style={styles.nameUser}>Udemy</Text>
+                <Text style={styles.titleUser}>
+                  Cursos a partir de R$ 29,99!!
+                </Text>
               </View>
             </View>
           </View>
-        </ScrollView>
-      </NativeBaseProvider>
+          <View style={styles.containerPost}>
+            <View style={styles.userPost}>
+              <View style={styles.containerUser}>
+                <View style={styles.photoUser}>
+                  <Image source={require("../../assets/images/Logo.png")} />
+                </View>
+                <View style={styles.userInformations}>
+                  <Text style={styles.nameUser}>Udemy</Text>
+                  <Text style={styles.titleUser}>Patrocinado</Text>
+                </View>
+              </View>
+              <Image
+                style={styles.imagePost}
+                source={require("../../assets/images/postred.png")}
+              />
+              <View style={styles.containerUser}>
+                <TouchableOpacity onPress={handleLike}>
+                  {like ? (
+                    <Icon name="hearto" size={25} color="#FFF" />
+                  ) : (
+                    <Icon name="heart" size={25} color="#FFF" />
+                  )}
+                </TouchableOpacity>
+                <IconEvil name="comment" size={37} color="#FFF" />
+                <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
+              </View>
+              <View style={styles.containerUser}>
+                <Text style={styles.nameUser}>Udemy</Text>
+                <Text style={styles.titleUser}>
+                  Cursos a partir de R$ 29,99!!
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -115,7 +118,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#1E1E1E",
-    color: "#fff",
   },
   containerHeader: {
     backgroundColor: "#1E1E1E",

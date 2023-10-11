@@ -1,3 +1,4 @@
+import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
   View,
@@ -376,6 +377,7 @@ export default function Treinos() {
           </View>
         </View>
       </View>
+      <StatusBar style="light" translucent />
     </ScrollView>
   );
 }

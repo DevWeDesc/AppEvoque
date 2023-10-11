@@ -8,11 +8,10 @@ import {
   ImageBackground,
   ScrollView,
   SafeAreaView,
-  StatusBar,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";
-import { color } from "native-base/lib/typescript/theme/styled-system";
+import { StatusBar } from "expo-status-bar";
 
 export default function Perfil({ navigation }: any) {
   const handleLogin = () => {
@@ -29,7 +28,7 @@ export default function Perfil({ navigation }: any) {
     password: "123456",
   });
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#1E1E1E" }}>
       <ScrollView style={styles.container}>
         <View
           style={{
@@ -54,6 +53,7 @@ export default function Perfil({ navigation }: any) {
               <MaterialIcons name="photo-camera" size={24} color="#1E1E1E" />
             </TouchableOpacity>
           </View>
+
           <TouchableOpacity
             activeOpacity={0.6}
             style={{
@@ -182,7 +182,6 @@ export default function Perfil({ navigation }: any) {
           </View>
         </TouchableOpacity>
       </ScrollView>
-      <StatusBar translucent />
     </SafeAreaView>
   );
 }

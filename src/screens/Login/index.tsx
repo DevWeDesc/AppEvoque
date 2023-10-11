@@ -13,6 +13,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
 import { position } from "native-base/lib/typescript/theme/styled-system";
 import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
 
 export interface LoginProps {
   navigation: StackNavigationProp<any>;
@@ -25,7 +26,7 @@ export default function Login({ navigation }: LoginProps) {
 
   const handleLogin = () => {
     console.log(`Email: ${email}, Senha: ${password}`);
-    navigation.navigate("Sessão de Treinos");
+    navigation.navigate("HomeScreen");
     // reset({
     //   index: 0,
     //   routes: [{ name: "Sessão de Treinos" }],
@@ -89,7 +90,6 @@ export default function Login({ navigation }: LoginProps) {
           </View>
         </View>
       </View>
-
       <StatusBar style="light" translucent />
     </SafeAreaView>
   );
