@@ -61,9 +61,6 @@ export default function Perfil({ navigation }: any) {
               paddingHorizontal: 20,
               borderRadius: 20,
               backgroundColor: "#000",
-              shadowColor: "#FFF",
-              shadowOpacity: 0.3,
-              shadowOffset: 1,
               marginBottom: 10,
             }}
           >

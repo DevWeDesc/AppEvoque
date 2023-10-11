@@ -53,7 +53,7 @@ export function HomeScreen({ navigation }: any) {
               </View>
               <Image
                 style={styles.imagePost}
-                source={require("../../assets/images/postred.png")}
+                source={require("../../assets/images/PhotoPost.png")}
               />
               <View style={styles.containerUser}>
                 <TouchableOpacity onPress={handleLike}>
@@ -78,16 +78,18 @@ export function HomeScreen({ navigation }: any) {
             <View style={styles.userPost}>
               <View style={styles.containerUser}>
                 <View style={styles.photoUser}>
-                  <Image source={require("../../assets/images/Logo.png")} />
+                  <Image
+                    source={require("../../assets/images/ImageInsta.png")}
+                  />
                 </View>
                 <View style={styles.userInformations}>
-                  <Text style={styles.nameUser}>Udemy</Text>
+                  <Text style={styles.nameUser}>Instagram</Text>
                   <Text style={styles.titleUser}>Patrocinado</Text>
                 </View>
               </View>
               <Image
                 style={styles.imagePost}
-                source={require("../../assets/images/postred.png")}
+                source={require("../../assets/images/PhotoPostInsta.png")}
               />
               <View style={styles.containerUser}>
                 <TouchableOpacity onPress={handleLike}>
@@ -101,9 +103,13 @@ export function HomeScreen({ navigation }: any) {
                 <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
               </View>
               <View style={styles.containerUser}>
-                <Text style={styles.nameUser}>Udemy</Text>
                 <Text style={styles.titleUser}>
-                  Cursos a partir de R$ 29,99!!
+                  <Text style={styles.nameUser}>Instagram </Text>
+                  <Text style={styles.titleUser}>
+                    Nesta terça-feira (14), o Instagram anunciou o fim de mais
+                    um recurso voltado para vendas, o Live Shopping (as "Compras
+                    ao vivo" da plataforma).
+                  </Text>
                 </Text>
               </View>
             </View>
@@ -154,6 +160,7 @@ const styles = StyleSheet.create({
     gap: 10,
     paddingHorizontal: 0,
     alignItems: "flex-start",
+    width: "100%",
   },
   userInformations: {
     flexDirection: "column",
@@ -165,6 +172,9 @@ const styles = StyleSheet.create({
   },
   titleUser: {
     color: "#FFF",
+    display: "flex",
+    flexDirection: "row",
+    gap: 10,
   },
   photoUser: {
     width: 50,
@@ -175,6 +185,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   imagePost: {
-    width: "130%",
+    width: "100%",
   },
 });
