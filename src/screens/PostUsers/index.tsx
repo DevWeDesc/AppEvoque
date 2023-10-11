@@ -8,8 +8,23 @@ import {
 } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native";
+import { PostData } from "../../../data/data";
 
-export const PostUsers = () => {
+export const PostUsers = ({ navigation }: any) => {
+  const newPost = () => {
+    const PhotoPost = require("../../assets/images/NewPhotoPost.png");
+    const PhotoUser = require("../../assets/images/rodrigo.jpg");
+    PostData.unshift({
+      id: 3,
+      photoUser: PhotoUser,
+      name: "Rodrigo Hasi",
+      description:
+        "Estamos empolgados em anunciar a chegada da Academia Evoque à sua comunidade! Com um compromisso inabalável com a saúde, bem-estar e fitness!",
+      patrocined: true,
+      photoPost: PhotoPost,
+    });
+    navigation.navigate("HomeScreen");
+  };
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#1E1E1E" }}>
       <ScrollView
@@ -87,6 +102,9 @@ export const PostUsers = () => {
               style={{
                 fontWeight: "bold",
                 textAlign: "center",
+              }}
+              onPress={() => {
+                newPost();
               }}
             >
               Publicar

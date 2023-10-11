@@ -5,15 +5,18 @@ import {
   Kanit_700Bold,
   Kanit_600SemiBold,
 } from "@expo-google-fonts/kanit";
-import { LoginProps } from "../Login";
-import { NativeBaseProvider } from "native-base";
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ScrollView, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import IconEvil from "react-native-vector-icons/EvilIcons";
 import IconIon from "react-native-vector-icons/Ionicons";
+import { PostData } from "../../../data/data";
+import { IPost } from "../../../types/types";
+import { AppContext } from "../../context/context";
 
 export function HomeScreen({ navigation }: any) {
+  const { loadingPosts, setLoadingPosts } = useContext(AppContext);
+  const [DataPost, setPostData] = useState([]);
   const [like, setLike] = useState(false);
   let [fontsLoaded, fontError] = useFonts({
     Kanit_400Regular,
@@ -39,82 +42,46 @@ export function HomeScreen({ navigation }: any) {
         <Image source={require("../../assets/images/message-circle.png")} />
       </View>
       <ScrollView>
-        <View style={styles.containerAllPosts}>
-          <View style={styles.containerPost}>
-            <View style={styles.userPost}>
-              <View style={styles.containerUser}>
-                <View style={styles.photoUser}>
-                  <Image source={require("../../assets/images/Logo.png")} />
+        {PostData.map((post: IPost) => (
+          <View style={styles.containerAllPosts}>
+            <View style={styles.containerPost}>
+              <View style={styles.userPost}>
+                <View style={styles.containerUser}>
+                  <View style={styles.photoUser}>
+                    <Image
+                      source={post.photoUser}
+                      style={{ maxWidth: 50, maxHeight: 50, borderRadius: 40 }}
+                    />
+                  </View>
+                  <View style={styles.userInformations}>
+                    <Text style={styles.nameUser}>{post.name}</Text>
+                    <Text style={styles.titleUser}>
+                      {post.patrocined ? "Patrocinado" : null}
+                    </Text>
+                  </View>
                 </View>
-                <View style={styles.userInformations}>
-                  <Text style={styles.nameUser}>Udemy</Text>
-                  <Text style={styles.titleUser}>Patrocinado</Text>
+                <Image style={styles.imagePost} source={post.photoPost} />
+                <View style={styles.containerUser}>
+                  <TouchableOpacity onPress={handleLike}>
+                    {like ? (
+                      <Icon name="hearto" size={25} color="#FFF" />
+                    ) : (
+                      <Icon name="heart" size={25} color="#FFF" />
+                    )}
+                  </TouchableOpacity>
+                  <IconEvil name="comment" size={37} color="#FFF" />
+                  <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
                 </View>
-              </View>
-              <Image
-                style={styles.imagePost}
-                source={require("../../assets/images/PhotoPost.png")}
-              />
-              <View style={styles.containerUser}>
-                <TouchableOpacity onPress={handleLike}>
-                  {like ? (
-                    <Icon name="hearto" size={25} color="#FFF" />
-                  ) : (
-                    <Icon name="heart" size={25} color="#FFF" />
-                  )}
-                </TouchableOpacity>
-                <IconEvil name="comment" size={37} color="#FFF" />
-                <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
-              </View>
-              <View style={styles.containerUser}>
-                <Text style={styles.nameUser}>Udemy</Text>
-                <Text style={styles.titleUser}>
-                  Cursos a partir de R$ 29,99!!
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View style={styles.containerPost}>
-            <View style={styles.userPost}>
-              <View style={styles.containerUser}>
-                <View style={styles.photoUser}>
-                  <Image
-                    source={require("../../assets/images/ImageInsta.png")}
-                  />
-                </View>
-                <View style={styles.userInformations}>
-                  <Text style={styles.nameUser}>Instagram</Text>
-                  <Text style={styles.titleUser}>Patrocinado</Text>
-                </View>
-              </View>
-              <Image
-                style={styles.imagePost}
-                source={require("../../assets/images/PhotoPostInsta.png")}
-              />
-              <View style={styles.containerUser}>
-                <TouchableOpacity onPress={handleLike}>
-                  {like ? (
-                    <Icon name="hearto" size={25} color="#FFF" />
-                  ) : (
-                    <Icon name="heart" size={25} color="#FFF" />
-                  )}
-                </TouchableOpacity>
-                <IconEvil name="comment" size={37} color="#FFF" />
-                <IconIon name="arrow-undo-outline" size={27} color="#FFF" />
-              </View>
-              <View style={styles.containerUser}>
-                <Text style={styles.titleUser}>
-                  <Text style={styles.nameUser}>Instagram </Text>
+                <View style={styles.containerUser}>
                   <Text style={styles.titleUser}>
-                    Nesta terça-feira (14), o Instagram anunciou o fim de mais
-                    um recurso voltado para vendas, o Live Shopping (as "Compras
-                    ao vivo" da plataforma).
+                    <Text style={styles.nameUser}>{post.name} </Text>
+                    <Text style={styles.titleUser}>{post.description}</Text>
                   </Text>
-                </Text>
+                </View>
               </View>
             </View>
           </View>
-        </View>
+        ))}
       </ScrollView>
     </SafeAreaView>
   );
