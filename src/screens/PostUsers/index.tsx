@@ -6,11 +6,13 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { SafeAreaView } from "react-native";
 import { PostData } from "../../../data/data";
+import { AppContext } from "../../context/context";
 
 export const PostUsers = ({ navigation }: any) => {
+  const { loadingPosts, setLoadingPosts } = useContext(AppContext);
   const newPost = () => {
     const PhotoPost = require("../../assets/images/NewPhotoPost.png");
     const PhotoUser = require("../../assets/images/rodrigo.jpg");
@@ -23,7 +25,7 @@ export const PostUsers = ({ navigation }: any) => {
       patrocined: true,
       photoPost: PhotoPost,
     });
-    navigation.navigate("HomeScreen");
+    navigation.navigate("Login");
   };
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#1E1E1E" }}>
@@ -97,14 +99,14 @@ export const PostUsers = ({ navigation }: any) => {
               borderRadius: 8,
               marginBottom: 20,
             }}
+            onPress={() => {
+              newPost();
+            }}
           >
             <Text
               style={{
                 fontWeight: "bold",
                 textAlign: "center",
-              }}
-              onPress={() => {
-                newPost();
               }}
             >
               Publicar

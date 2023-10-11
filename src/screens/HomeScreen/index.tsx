@@ -5,18 +5,15 @@ import {
   Kanit_700Bold,
   Kanit_600SemiBold,
 } from "@expo-google-fonts/kanit";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { ScrollView, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import IconEvil from "react-native-vector-icons/EvilIcons";
 import IconIon from "react-native-vector-icons/Ionicons";
 import { PostData } from "../../../data/data";
 import { IPost } from "../../../types/types";
-import { AppContext } from "../../context/context";
 
 export function HomeScreen({ navigation }: any) {
-  const { loadingPosts, setLoadingPosts } = useContext(AppContext);
-  const [DataPost, setPostData] = useState([]);
   const [like, setLike] = useState(false);
   let [fontsLoaded, fontError] = useFonts({
     Kanit_400Regular,
