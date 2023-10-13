@@ -5,30 +5,64 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  Switch,
 } from "react-native";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { SafeAreaView, Platform } from "react-native";
 import { PostData } from "../../../assets/data/data";
 import { AppContext } from "../../context/context";
+import * as ImagePicker from "expo-image-picker";
+
+const imagepost = require("../../assets/images/NewPhotoPost.png");
 
 export const PostUsers = ({ navigation }: any) => {
   const { setLoadingPosts } = useContext(AppContext);
+  const [idPublication, setIdPublication] = useState(0);
+  const [publicPublication, setPublicPublication] = useState(false);
+  const [imageSelected, setImageSelected] = useState("");
+  const [descriptionPost, setDescriptionPost] = useState("");
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setImageSelected(result.assets[0].uri);
+      console.log(imageSelected);
+    }
+  };
+
+  const handlePublicPublication = () => {
+    publicPublication
+      ? setPublicPublication(false)
+      : setPublicPublication(true);
+  };
 
   const newPost = () => {
-    const PhotoPost = require("../../assets/images/NewPhotoPost.png");
     const PhotoUser = require("../../assets/images/rodrigo.jpg");
     PostData.unshift({
-      id: 3,
+      id: idPublication,
       photoUser: PhotoUser,
       name: "Rodrigo Hasi",
-      description:
-        "Estamos empolgados em anunciar a chegada da Academia Evoque à sua comunidade! Com um compromisso inabalável com a saúde, bem-estar e fitness!",
+      description: descriptionPost,
       patrocined: true,
-      photoPost: PhotoPost,
+      photoPost: imagepost,
+      //photoPost: imageSelected,
     });
-    alert("Postagem realizada com sucesso!");
+    alert("Postagem realizada com Sucesso!");
     setLoadingPosts(true);
+    setDescriptionPost("");
+    setImageSelected("");
+    setIdPublication(0);
     navigation.navigate("HomeScreen");
+  };
+
+  const getRandomArbitrary = () => {
+    setIdPublication(Math.random() * (2 - 1000) + 2);
   };
 
   return (
@@ -58,13 +92,19 @@ export const PostUsers = ({ navigation }: any) => {
             marginTop: 27,
           }}
         >
-          <Image source={require("../../assets/images/Switch.png")} />
+          <Switch
+            value={publicPublication}
+            onValueChange={handlePublicPublication}
+            thumbColor={"#FFF"}
+          />
           <View>
             <Text style={{ color: "#FFF" }}>Tornar publicação Pública</Text>
           </View>
         </View>
         <View style={{ gap: 19, marginTop: 16 }}>
           <TextInput
+            value={descriptionPost}
+            onChangeText={(newText) => setDescriptionPost(newText)}
             placeholderTextColor="white"
             numberOfLines={3}
             multiline={true}
@@ -80,24 +120,36 @@ export const PostUsers = ({ navigation }: any) => {
             }}
             placeholder="Insira sua Descrição..."
           />
-          <View
-            style={{
-              minHeight: 309,
-              borderRadius: 8,
-              backgroundColor: "#424242",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Image
-              style={{ width: 60, height: 60, objectFit: "contain" }}
-              source={require("../../assets/images/plus.png")}
-            />
-            <Text style={{ color: "#FFF" }}>
-              Adicione uma foto para sua Postagem!!
-            </Text>
-          </View>
+          {!imageSelected ? (
+            <TouchableOpacity onPress={pickImage}>
+              <View
+                style={{
+                  minHeight: 309,
+                  borderRadius: 8,
+                  backgroundColor: "#424242",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Image
+                  style={{ width: 60, height: 60, objectFit: "contain" }}
+                  source={require("../../assets/images/plus.png")}
+                />
+                <Text style={{ color: "#FFF" }}>
+                  Adicione uma foto para sua Postagem!!
+                </Text>
+              </View>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity onPress={pickImage}>
+              <Image
+                source={{ uri: imageSelected }}
+                style={{ width: "100%", minHeight: 309, borderRadius: 8 }}
+              />
+            </TouchableOpacity>
+          )}
+
           <TouchableOpacity
             activeOpacity={0.65}
             style={{
@@ -107,6 +159,7 @@ export const PostUsers = ({ navigation }: any) => {
               marginBottom: 20,
             }}
             onPress={() => {
+              getRandomArbitrary();
               newPost();
             }}
           >
