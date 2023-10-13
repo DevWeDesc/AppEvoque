@@ -7,7 +7,7 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useContext } from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, Platform } from "react-native";
 import { PostData } from "../../../assets/data/data";
 import { AppContext } from "../../context/context";
 
@@ -33,6 +33,8 @@ export const PostUsers = ({ navigation }: any) => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#1E1E1E" }}>
+      <View style={{ paddingTop: Platform.OS === "android" ? 40 : 0 }} />
+
       <ScrollView
         style={{
           paddingHorizontal: 20,
@@ -64,16 +66,17 @@ export const PostUsers = ({ navigation }: any) => {
         <View style={{ gap: 19, marginTop: 16 }}>
           <TextInput
             placeholderTextColor="white"
-            numberOfLines={10}
+            numberOfLines={3}
             multiline={true}
             style={{
+              alignItems: "flex-start",
               justifyContent: "flex-start",
               backgroundColor: "#424242",
               paddingHorizontal: 10,
               paddingVertical: 15,
               borderRadius: 8,
               color: "white",
-              minHeight: 56,
+              minHeight: 36,
             }}
             placeholder="Insira sua Descrição..."
           />

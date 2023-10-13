@@ -22,15 +22,9 @@ export interface LoginProps {
 export default function Login({ navigation }: LoginProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //const { reset } = useNavigation();
 
   const handleLogin = () => {
-    //console.log(`Email: ${email}, Senha: ${password}`);
     navigation.navigate("HomeScreen");
-    // reset({
-    //   index: 0,
-    //   routes: [{ name: "Sessão de Treinos" }],
-    // });
   };
   const handleRegister = () => {
     navigation.navigate("Register");
@@ -39,7 +33,7 @@ export default function Login({ navigation }: LoginProps) {
   return (
     <SafeAreaView style={styles.container}>
       <Image
-        style={{ position: "absolute", opacity: 0.7 }}
+        style={{ position: "absolute", opacity: 0.7, width: "100%" }}
         source={require("../../assets/images/ImgEvoque.png")}
       />
       <View
@@ -119,7 +113,6 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "#424242",
     color: "#fff",
-    width: 300,
     height: 50,
     borderRadius: 8,
     marginBottom: 20,

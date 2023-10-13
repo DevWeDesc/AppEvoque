@@ -6,13 +6,14 @@ import {
   Kanit_600SemiBold,
 } from "@expo-google-fonts/kanit";
 import React, { useState, useEffect, useContext } from "react";
-import { ScrollView, TouchableOpacity } from "react-native";
+import { ScrollView, TouchableOpacity, Platform } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import IconEvil from "react-native-vector-icons/EvilIcons";
 import IconIon from "react-native-vector-icons/Ionicons";
 import { PostData } from "../../../assets/data/data";
 import { IPost } from "../../../types/types";
 import { AppContext } from "../../context/context";
+import { StatusBar } from "expo-status-bar";
 
 export function HomeScreen({ navigation }: any) {
   const { loadingPosts, setLoadingPosts } = useContext(AppContext);
@@ -39,6 +40,7 @@ export function HomeScreen({ navigation }: any) {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={{ paddingTop: Platform.OS === "android" ? 40 : 0 }} />
       <View style={styles.containerHeader}>
         <Image
           source={require("../../assets/images/LogoEvoque.png")}
@@ -94,6 +96,7 @@ export function HomeScreen({ navigation }: any) {
           ))}
         </ScrollView>
       )}
+      <StatusBar style="light" translucent />
     </SafeAreaView>
   );
 }

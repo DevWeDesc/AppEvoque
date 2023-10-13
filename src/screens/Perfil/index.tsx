@@ -8,6 +8,7 @@ import {
   ImageBackground,
   ScrollView,
   SafeAreaView,
+  Platform,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";
@@ -29,6 +30,8 @@ export default function Perfil({ navigation }: any) {
   });
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#1E1E1E" }}>
+      <View style={{ paddingTop: Platform.OS === "android" ? 40 : 0 }} />
+
       <ScrollView style={styles.container}>
         <View
           style={{
