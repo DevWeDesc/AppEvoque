@@ -29,9 +29,9 @@ const TabNavigation = () => {
                 : "ios-information-circle-outline";
               break;
 
-            case "Explorer":
-              iconName = focused ? "search" : "search-outline";
-              break;
+            // case "Explorer":
+            //   iconName = focused ? "search" : "search-outline";
+            //   break;
             case "Sessão de Treinos":
               iconName = focused ? "barbell-sharp" : "barbell-outline";
               break;
@@ -75,11 +75,11 @@ const TabNavigation = () => {
         options={{ headerShown: false }}
       />
 
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Explorer"
         component={Explorer}
         options={{ headerShown: false }}
-      />
+      /> */}
       <Tab.Screen
         name="Meu Perfil"
         component={Perfil}

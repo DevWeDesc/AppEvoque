@@ -7,9 +7,19 @@ import {
   StyleSheet,
   Image,
   ScrollView,
+  Modal,
+  Button,
+  TouchableOpacity,
 } from "react-native";
+import { Video, ResizeMode } from "expo-av";
+
+const video = "https://www.youtube.com/embed/SX3Eu5oHCY8";
 
 export default function Treinos() {
+  const video = React.useRef(null);
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [status, setStatus] = React.useState({});
+
   return (
     <ScrollView style={{ backgroundColor: "#1E1E1E", flex: 1, padding: 20 }}>
       <View style={{ gap: 15, marginBottom: 20 }}>
@@ -73,27 +83,32 @@ export default function Treinos() {
               Iniciante
             </Text>
           </ImageBackground>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
+          <TouchableOpacity
+            activeOpacity={0.65}
+            onPress={() => setModalOpen(true)}
           >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
+            <View
+              style={{
+                padding: 10,
+                alignItems: "center",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <Image
+                  source={require("../../assets/images/Imagetreino.png")}
+                ></Image>
+                <View style={{ gap: 10, marginLeft: 14 }}>
+                  <Text style={{ color: "#FFF", fontWeight: "bold" }}>
+                    Abdômen - Iniciante
+                  </Text>
+                  <Text style={{ color: "#FFF" }}>18min</Text>
+                </View>
               </View>
+              <Image source={require("../../assets/images/arrowRight.png")} />
             </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
-          </View>
+          </TouchableOpacity>
           <View
             style={{
               padding: 10,
@@ -377,6 +392,46 @@ export default function Treinos() {
           </View>
         </View>
       </View>
+      <Modal animationType="slide" transparent={true} visible={modalOpen}>
+        <View
+          style={{
+            backgroundColor: "#000",
+            flex: 1,
+            display: "flex",
+            alignItems: "start",
+            justifyContent: "center",
+            gap: 20,
+          }}
+        >
+          <TouchableOpacity
+            activeOpacity={0.65}
+            onPress={() => setModalOpen(false)}
+            style={{
+              marginTop: 0,
+              marginLeft: 10,
+              width: 30,
+              height: 30,
+              justifyContent: "center",
+              backgroundColor: "#3d3d3d",
+              alignItems: "center",
+              borderRadius: 100,
+            }}
+          >
+            <Text style={{ color: "#FFF", fontWeight: "bold" }}>X</Text>
+          </TouchableOpacity>
+          <Video
+            style={{ width: "100%", minHeight: 500 }}
+            ref={video}
+            source={{
+              uri: "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+            }}
+            useNativeControls
+            resizeMode={ResizeMode.CONTAIN}
+            isLooping
+            onPlaybackStatusUpdate={(status) => setStatus(() => status)}
+          />
+        </View>
+      </Modal>
       <StatusBar style="light" translucent />
     </ScrollView>
   );
