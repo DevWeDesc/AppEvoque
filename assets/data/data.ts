@@ -1,10 +1,10 @@
-import { IPost } from "../types/types";
+import { IPost } from "../../types/types";
 
-const UdemyImage = require("../src/assets/images/Logo.png");
-const UdemyPost = require("../src/assets/images/PhotoPost.png");
+const UdemyImage = require("../../src/assets/images/Logo.png");
+const UdemyPost = require("../../src/assets/images/PhotoPost.png");
 
-const InstagramImage = require("../src/assets/images/ImageInsta.png");
-const InstagramPost = require("../src/assets/images/PhotoPostInsta.png");
+const InstagramImage = require("../../src/assets/images/ImageInsta.png");
+const InstagramPost = require("../../src/assets/images/PhotoPostInsta.png");
 
 export const PostData: IPost[] = [
   {

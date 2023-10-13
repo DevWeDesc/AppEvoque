@@ -22,10 +22,10 @@ export interface LoginProps {
 export default function Login({ navigation }: LoginProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { reset } = useNavigation();
+  //const { reset } = useNavigation();
 
   const handleLogin = () => {
-    console.log(`Email: ${email}, Senha: ${password}`);
+    //console.log(`Email: ${email}, Senha: ${password}`);
     navigation.navigate("HomeScreen");
     // reset({
     //   index: 0,

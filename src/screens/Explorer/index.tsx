@@ -8,14 +8,13 @@ export const Explorer = () => {
         width: "100%",
         backgroundColor: "#1E1E1E",
         flex: 1,
+        flexDirection: "row",
+        gap: 3,
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <View
-        style={{
-          width: "100%",
-          backgroundColor: "#1E1E1E",
-        }}
-      ></View>
+      <Text style={{ color: "white" }}>Explorar</Text>
     </SafeAreaView>
   );
 };

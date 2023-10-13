@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type IPost = {
   id: number;
   photoUser: string | any;
@@ -5,4 +7,8 @@ export type IPost = {
   patrocined: boolean;
   photoPost: string | any;
   description: string;
+};
+
+export type IContextApp = {
+  children: ReactNode;
 };
