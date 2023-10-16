@@ -6,11 +6,9 @@ import {
   ImageBackground,
   Image,
   ScrollView,
-  Modal,
   TouchableOpacity,
 } from "react-native";
-import { Video, ResizeMode } from "expo-av";
-import { TrainingData } from "../../../assets/data/data";
+import { DataLevelTraining, TrainingData } from "../../../assets/data/data";
 import { GenericModal } from "../../components/Modal";
 
 export default function Treinos() {
@@ -25,6 +23,7 @@ export default function Treinos() {
         <Text style={{ fontWeight: "bold", color: "#FFF", fontSize: 12 }}>
           Níveis de Treino
         </Text>
+
         <View
           style={{
             paddingHorizontal: 10,
@@ -33,30 +32,20 @@ export default function Treinos() {
             justifyContent: "space-between",
           }}
         >
-          <View style={{ alignItems: "center" }}>
-            <Image source={require("../../assets/images/PhotoIniciante.png")} />
-            <Text
-              style={{
-                fontWeight: "bold",
-                color: "#FFF",
-                fontSize: 12,
-              }}
-            >
-              Iniciante
-            </Text>
-          </View>
-          <View style={{ alignItems: "center" }}>
-            <Image source={require("../../assets/images/Intermediary.png")} />
-            <Text style={{ fontWeight: "bold", color: "#FFF", fontSize: 12 }}>
-              Intermediário
-            </Text>
-          </View>
-          <View style={{ alignItems: "center" }}>
-            <Image source={require("../../assets/images/avanced.png")} />
-            <Text style={{ fontWeight: "bold", color: "#FFF", fontSize: 12 }}>
-              Avançado
-            </Text>
-          </View>
+          {DataLevelTraining.map((data) => (
+            <View style={{ alignItems: "center" }}>
+              <Image source={data.image} />
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  color: "#FFF",
+                  fontSize: 12,
+                }}
+              >
+                {data.level}
+              </Text>
+            </View>
+          ))}
         </View>
       </View>
       {TrainingData.map((training) => (

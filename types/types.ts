@@ -31,6 +31,11 @@ export type ITrainingData = {
   timer: string;
 };
 
+export type ILevelTraining = {
+  image: string | ImageSourcePropType | any;
+  level: string;
+};
+
 export type IModalTraining = {
   modalOpen: boolean;
   setOpenModal: () => void;
