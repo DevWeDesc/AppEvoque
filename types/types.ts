@@ -26,9 +26,10 @@ export type ICategoryTraining = {
 export type ITrainingData = {
   videoSource: AVPlaybackSource | any;
   name: string;
-  level: string;
+  level?: string;
   image: string | ImageSourcePropType | any;
-  timer: string;
+  serious: string;
+  repetitions: string;
 };
 
 export type ILevelTraining = {

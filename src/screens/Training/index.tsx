@@ -104,13 +104,36 @@ export default function Treinos() {
                     <View
                       style={{ flexDirection: "row", alignItems: "center" }}
                     >
-                      <Image source={dataTrainings.image}></Image>
+                      <Image
+                        style={{
+                          maxWidth: 84,
+                          maxHeight: 84,
+                          borderRadius: 8,
+                          objectFit: "fill",
+                        }}
+                        source={dataTrainings.image}
+                      ></Image>
                       <View style={{ gap: 10, marginLeft: 14 }}>
                         <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                          {`${dataTrainings.name} - ${dataTrainings.level}`}
+                          {`${dataTrainings.name} `}
                         </Text>
-                        <Text style={{ color: "#FFF" }}>
-                          {dataTrainings.timer}
+                        <Text
+                          style={{
+                            color: "#FFF",
+                            fontSize: 13,
+                            fontWeight: "500",
+                          }}
+                        >
+                          {dataTrainings.serious}
+                        </Text>
+                        <Text
+                          style={{
+                            color: "#FFF",
+                            fontSize: 13,
+                            fontWeight: "500",
+                          }}
+                        >
+                          {dataTrainings.repetitions}
                         </Text>
                       </View>
                     </View>
