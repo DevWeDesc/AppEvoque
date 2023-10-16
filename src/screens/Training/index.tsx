@@ -74,7 +74,7 @@ export default function Treinos() {
                 gap: 10,
                 paddingLeft: 25,
               }}
-              source={require("../../assets/images/imageInit.png")}
+              source={training.image}
             >
               <Text
                 style={{
@@ -89,7 +89,7 @@ export default function Treinos() {
                 {training.level}
               </Text>
             </ImageBackground>
-            {training?.dataTraining?.map((trainings) => (
+            {training?.dataTraining?.map((dataTrainings) => (
               <View
                 style={{
                   padding: 10,
@@ -99,12 +99,12 @@ export default function Treinos() {
                 }}
               >
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
-                  <Image source={trainings.photo}></Image>
+                  <Image source={dataTrainings.image}></Image>
                   <View style={{ gap: 10, marginLeft: 14 }}>
                     <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                      {`${trainings.name} - ${trainings.level}`}
+                      {`${dataTrainings.name} - ${dataTrainings.level}`}
                     </Text>
-                    <Text style={{ color: "#FFF" }}>{trainings.timer}</Text>
+                    <Text style={{ color: "#FFF" }}>{dataTrainings.timer}</Text>
                   </View>
                 </View>
                 <Image source={require("../../assets/images/arrowRight.png")} />

@@ -7,6 +7,7 @@ const InstagramImage = require("../../src/assets/images/ImageInsta.png");
 const InstagramPost = require("../../src/assets/images/PhotoPostInsta.png");
 
 const photoTrainingAbdomen = require("../..//src/assets/images/Imagetreino.png");
+const photoBannerTraining = require("../..//src/assets/images/imageInit.png");
 
 export const PostData: IPost[] = [
   {
@@ -31,6 +32,7 @@ export const PostData: IPost[] = [
 
 export const TrainingData: ICategoryTraining[] = [
   {
+    image: photoBannerTraining,
     quantityTrainings: "5 Treinos",
     title: "Clássico",
     level: "beginner",
@@ -38,18 +40,19 @@ export const TrainingData: ICategoryTraining[] = [
       {
         level: "Iniciante",
         name: "Abdômen",
-        photo: photoTrainingAbdomen,
+        image: photoTrainingAbdomen,
         timer: "18min",
       },
       {
         level: "Iniciante",
         name: "Abdômen",
-        photo: photoTrainingAbdomen,
+        image: photoTrainingAbdomen,
         timer: "18min",
       },
     ],
   },
   {
+    image: photoBannerTraining,
     quantityTrainings: "5 Treinos",
     title: "Clássico",
     level: "beginner",
@@ -57,18 +60,19 @@ export const TrainingData: ICategoryTraining[] = [
       {
         level: "Iniciante",
         name: "Abdômen",
-        photo: photoTrainingAbdomen,
+        image: photoTrainingAbdomen,
         timer: "18min",
       },
       {
         level: "Iniciante",
         name: "Abdômen",
-        photo: photoTrainingAbdomen,
+        image: photoTrainingAbdomen,
         timer: "18min",
       },
     ],
   },
   {
+    image: photoBannerTraining,
     quantityTrainings: "5 Treinos",
     title: "Clássico",
     level: "beginner",
@@ -76,13 +80,13 @@ export const TrainingData: ICategoryTraining[] = [
       {
         level: "Iniciante",
         name: "Abdômen",
-        photo: photoTrainingAbdomen,
+        image: photoTrainingAbdomen,
         timer: "18min",
       },
       {
         level: "Iniciante",
         name: "Abdômen",
-        photo: photoTrainingAbdomen,
+        image: photoTrainingAbdomen,
         timer: "18min",
       },
     ],
