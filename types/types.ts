@@ -18,13 +18,13 @@ export type ICategoryTraining = {
   title: string;
   quantityTrainings: string;
   level: string;
-  image: string | ImageSourcePropType;
+  image: string | ImageSourcePropType | any;
   dataTraining: ITrainingData[];
 };
 
 export type ITrainingData = {
   name: string;
   level: string;
-  image: string | ImageSourcePropType;
+  image: string | ImageSourcePropType | any;
   timer: string;
 };

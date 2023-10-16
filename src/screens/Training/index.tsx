@@ -4,17 +4,14 @@ import {
   View,
   Text,
   ImageBackground,
-  StyleSheet,
   Image,
   ScrollView,
   Modal,
-  Button,
   TouchableOpacity,
 } from "react-native";
 import { Video, ResizeMode } from "expo-av";
 import { TrainingData } from "../../../assets/data/data";
-
-const video = "https://www.youtube.com/embed/SX3Eu5oHCY8";
+import { GenericModal } from "../../components/Modal";
 
 export default function Treinos() {
   const video = React.useRef(null);
@@ -90,69 +87,45 @@ export default function Treinos() {
               </Text>
             </ImageBackground>
             {training?.dataTraining?.map((dataTrainings) => (
-              <View
-                style={{
-                  padding: 10,
-                  alignItems: "center",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
+              <TouchableOpacity
+                activeOpacity={0.65}
+                onPress={() => setModalOpen(true)}
               >
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                  <Image source={dataTrainings.image}></Image>
-                  <View style={{ gap: 10, marginLeft: 14 }}>
-                    <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                      {`${dataTrainings.name} - ${dataTrainings.level}`}
-                    </Text>
-                    <Text style={{ color: "#FFF" }}>{dataTrainings.timer}</Text>
+                <View
+                  style={{
+                    padding: 10,
+                    alignItems: "center",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <View style={{ flexDirection: "row", alignItems: "center" }}>
+                    <Image source={dataTrainings.image}></Image>
+                    <View style={{ gap: 10, marginLeft: 14 }}>
+                      <Text style={{ color: "#FFF", fontWeight: "bold" }}>
+                        {`${dataTrainings.name} - ${dataTrainings.level}`}
+                      </Text>
+                      <Text style={{ color: "#FFF" }}>
+                        {dataTrainings.timer}
+                      </Text>
+                    </View>
                   </View>
+                  <Image
+                    source={require("../../assets/images/arrowRight.png")}
+                  />
                 </View>
-                <Image source={require("../../assets/images/arrowRight.png")} />
-              </View>
+              </TouchableOpacity>
             ))}
           </View>
         </View>
       ))}
-      <Modal animationType="slide" transparent={true} visible={modalOpen}>
-        <View
-          style={{
-            backgroundColor: "#000",
-            flex: 1,
-            display: "flex",
-            alignItems: "start",
-            justifyContent: "center",
-            gap: 20,
-          }}
-        >
-          <TouchableOpacity
-            activeOpacity={0.65}
-            onPress={() => setModalOpen(false)}
-            style={{
-              marginTop: 0,
-              marginLeft: 10,
-              width: 30,
-              height: 30,
-              justifyContent: "center",
-              backgroundColor: "#3d3d3d",
-              alignItems: "center",
-              borderRadius: 100,
-            }}
-          >
-            <Text style={{ color: "#FFF", fontWeight: "bold" }}>X</Text>
-          </TouchableOpacity>
-          <Video
-            style={{ width: "100%", minHeight: 500 }}
-            ref={video}
-            source={{
-              uri: "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-            }}
-            useNativeControls
-            resizeMode={ResizeMode.CONTAIN}
-            isLooping
-            onPlaybackStatusUpdate={(status) => setStatus(() => status)}
-          />
-        </View>
-      </Modal>
+      <GenericModal
+        modalOpen={modalOpen}
+        setOpenModal={() => setModalOpen(false)}
+        statusVideo={(status: any) => setStatus(() => status)}
+        videoRef={video}
+        videoSource={require("../../assets/videos/TrainingAbdomen.mp4")}
+      />
       <StatusBar style="light" translucent />
     </ScrollView>
   );
