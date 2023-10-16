@@ -122,7 +122,7 @@ export default function Treinos() {
       <GenericModal
         modalOpen={modalOpen}
         setOpenModal={() => setModalOpen(false)}
-        statusVideo={(status: any) => setStatus(() => status)}
+        statusVideo={(status: object) => setStatus(() => status)}
         videoRef={video}
         videoSource={require("../../assets/videos/TrainingAbdomen.mp4")}
       />

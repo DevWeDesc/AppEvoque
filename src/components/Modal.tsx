@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Video, ResizeMode } from "expo-av";
+import { IModalTraining } from "../../types/types";
 
 export const GenericModal = ({
   modalOpen,
@@ -16,7 +17,7 @@ export const GenericModal = ({
   statusVideo,
   videoRef,
   videoSource,
-}: any) => {
+}: IModalTraining) => {
   return (
     <Modal animationType="slide" transparent={true} visible={modalOpen}>
       <View
