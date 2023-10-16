@@ -1,10 +1,12 @@
-import { IPost } from "../../types/types";
+import { ICategoryTraining, IPost, ITrainingData } from "../../types/types";
 
+//Images Post Data
 const UdemyImage = require("../../src/assets/images/Logo.png");
 const UdemyPost = require("../../src/assets/images/PhotoPost.png");
-
 const InstagramImage = require("../../src/assets/images/ImageInsta.png");
 const InstagramPost = require("../../src/assets/images/PhotoPostInsta.png");
+
+const photoTrainingAbdomen = require("../..//src/assets/images/Imagetreino.png");
 
 export const PostData: IPost[] = [
   {
@@ -24,5 +26,65 @@ export const PostData: IPost[] = [
     photoPost: InstagramPost,
     description:
       " Nesta terça-feira (14), o Instagram anunciou o fim de mais um recurso voltado para vendas, o Live Shopping (as Compras ao vivo da plataforma).",
+  },
+];
+
+export const TrainingData: ICategoryTraining[] = [
+  {
+    quantityTrainings: "5 Treinos",
+    title: "Clássico",
+    level: "beginner",
+    dataTraining: [
+      {
+        level: "Iniciante",
+        name: "Abdômen",
+        photo: photoTrainingAbdomen,
+        timer: "18min",
+      },
+      {
+        level: "Iniciante",
+        name: "Abdômen",
+        photo: photoTrainingAbdomen,
+        timer: "18min",
+      },
+    ],
+  },
+  {
+    quantityTrainings: "5 Treinos",
+    title: "Clássico",
+    level: "beginner",
+    dataTraining: [
+      {
+        level: "Iniciante",
+        name: "Abdômen",
+        photo: photoTrainingAbdomen,
+        timer: "18min",
+      },
+      {
+        level: "Iniciante",
+        name: "Abdômen",
+        photo: photoTrainingAbdomen,
+        timer: "18min",
+      },
+    ],
+  },
+  {
+    quantityTrainings: "5 Treinos",
+    title: "Clássico",
+    level: "beginner",
+    dataTraining: [
+      {
+        level: "Iniciante",
+        name: "Abdômen",
+        photo: photoTrainingAbdomen,
+        timer: "18min",
+      },
+      {
+        level: "Iniciante",
+        name: "Abdômen",
+        photo: photoTrainingAbdomen,
+        timer: "18min",
+      },
+    ],
   },
 ];

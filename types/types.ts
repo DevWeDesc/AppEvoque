@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { ImageSourcePropType } from "react-native";
 
 export type IPost = {
   id: number;
@@ -11,4 +12,18 @@ export type IPost = {
 
 export type IContextApp = {
   children: ReactNode;
+};
+
+export type ICategoryTraining = {
+  title: string;
+  quantityTrainings: string;
+  level: string;
+  dataTraining: ITrainingData[];
+};
+
+export type ITrainingData = {
+  photo: string | ImageSourcePropType;
+  name: string;
+  level: string;
+  timer: string;
 };

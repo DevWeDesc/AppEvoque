@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Video, ResizeMode } from "expo-av";
+import { TrainingData } from "../../../assets/data/data";
 
 const video = "https://www.youtube.com/embed/SX3Eu5oHCY8";
 
@@ -60,338 +61,58 @@ export default function Treinos() {
           </View>
         </View>
       </View>
-      <View style={{ gap: 9, marginVertical: 20 }}>
-        <Text style={{ fontWeight: "bold", color: "#FFF", fontSize: 14 }}>
-          Clássico
-        </Text>
-        <View>
-          <ImageBackground
-            style={{
-              height: 153,
-              justifyContent: "center",
-              gap: 10,
-              paddingLeft: 25,
-            }}
-            source={require("../../assets/images/imageInit.png")}
-          >
-            <Text
-              style={{ color: "#CECECE", fontSize: 14, fontWeight: "bold" }}
-            >
-              5 Treinos
-            </Text>
-            <Text style={{ color: "#FFF", fontSize: 14, fontWeight: "bold" }}>
-              Iniciante
-            </Text>
-          </ImageBackground>
-          <TouchableOpacity
-            activeOpacity={0.65}
-            onPress={() => setModalOpen(true)}
-          >
-            <View
+      {TrainingData.map((training) => (
+        <View style={{ gap: 9, marginVertical: 20 }}>
+          <Text style={{ fontWeight: "bold", color: "#FFF", fontSize: 14 }}>
+            {training.title}
+          </Text>
+          <View>
+            <ImageBackground
               style={{
-                padding: 10,
-                alignItems: "center",
-                flexDirection: "row",
-                justifyContent: "space-between",
+                height: 153,
+                justifyContent: "center",
+                gap: 10,
+                paddingLeft: 25,
               }}
+              source={require("../../assets/images/imageInit.png")}
             >
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image
-                  source={require("../../assets/images/Imagetreino.png")}
-                ></Image>
-                <View style={{ gap: 10, marginLeft: 14 }}>
-                  <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                    Abdômen - Iniciante
-                  </Text>
-                  <Text style={{ color: "#FFF" }}>18min</Text>
+              <Text
+                style={{
+                  color: "#CECECE",
+                  fontSize: 14,
+                  fontWeight: "bold",
+                }}
+              >
+                {training.quantityTrainings}
+              </Text>
+              <Text style={{ color: "#FFF", fontSize: 14, fontWeight: "bold" }}>
+                {training.level}
+              </Text>
+            </ImageBackground>
+            {training?.dataTraining?.map((trainings) => (
+              <View
+                style={{
+                  padding: 10,
+                  alignItems: "center",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Image source={trainings.photo}></Image>
+                  <View style={{ gap: 10, marginLeft: 14 }}>
+                    <Text style={{ color: "#FFF", fontWeight: "bold" }}>
+                      {`${trainings.name} - ${trainings.level}`}
+                    </Text>
+                    <Text style={{ color: "#FFF" }}>{trainings.timer}</Text>
+                  </View>
                 </View>
+                <Image source={require("../../assets/images/arrowRight.png")} />
               </View>
-              <Image source={require("../../assets/images/arrowRight.png")} />
-            </View>
-          </TouchableOpacity>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
-              </View>
-            </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
-          </View>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
-              </View>
-            </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
-          </View>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
-              </View>
-            </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
+            ))}
           </View>
         </View>
-      </View>
-      <View style={{ gap: 9, marginVertical: 20 }}>
-        <Text style={{ fontWeight: "bold", color: "#FFF", fontSize: 14 }}>
-          Clássico
-        </Text>
-        <View>
-          <ImageBackground
-            style={{
-              height: 153,
-              justifyContent: "center",
-              gap: 10,
-              paddingLeft: 25,
-            }}
-            source={require("../../assets/images/imageInit.png")}
-          >
-            <Text
-              style={{ color: "#CECECE", fontSize: 14, fontWeight: "bold" }}
-            >
-              5 Treinos
-            </Text>
-            <Text style={{ color: "#FFF", fontSize: 14, fontWeight: "bold" }}>
-              Iniciante
-            </Text>
-          </ImageBackground>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
-              </View>
-            </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
-          </View>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
-              </View>
-            </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
-          </View>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
-              </View>
-            </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
-          </View>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
-              </View>
-            </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
-          </View>
-        </View>
-      </View>
-      <View style={{ gap: 9, marginVertical: 20 }}>
-        <Text style={{ fontWeight: "bold", color: "#FFF", fontSize: 14 }}>
-          Clássico
-        </Text>
-        <View>
-          <ImageBackground
-            style={{
-              height: 153,
-              justifyContent: "center",
-              gap: 10,
-              paddingLeft: 25,
-            }}
-            source={require("../../assets/images/imageInit.png")}
-          >
-            <Text
-              style={{ color: "#CECECE", fontSize: 14, fontWeight: "bold" }}
-            >
-              5 Treinos
-            </Text>
-            <Text style={{ color: "#FFF", fontSize: 14, fontWeight: "bold" }}>
-              Iniciante
-            </Text>
-          </ImageBackground>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
-              </View>
-            </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
-          </View>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
-              </View>
-            </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
-          </View>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
-              </View>
-            </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
-          </View>
-          <View
-            style={{
-              padding: 10,
-              alignItems: "center",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={require("../../assets/images/Imagetreino.png")}
-              ></Image>
-              <View style={{ gap: 10, marginLeft: 14 }}>
-                <Text style={{ color: "#FFF", fontWeight: "bold" }}>
-                  Abdômen - Iniciante
-                </Text>
-                <Text style={{ color: "#FFF" }}>18min</Text>
-              </View>
-            </View>
-            <Image source={require("../../assets/images/arrowRight.png")} />
-          </View>
-        </View>
-      </View>
+      ))}
       <Modal animationType="slide" transparent={true} visible={modalOpen}>
         <View
           style={{
