@@ -38,7 +38,7 @@ export default function Treinos() {
               activeOpacity={0.65}
               onPress={() => setLevelTraining(data.level)}
             >
-              <View style={{ alignItems: "center" }}>
+              <View style={{ alignItems: "center", gap: 10 }}>
                 <Image source={data.image} />
                 <Text
                   style={{
