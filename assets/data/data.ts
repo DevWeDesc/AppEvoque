@@ -8,6 +8,7 @@ const InstagramPost = require("../../src/assets/images/PhotoPostInsta.png");
 
 const photoTrainingAbdomen = require("../..//src/assets/images/Imagetreino.png");
 const photoBannerTraining = require("../..//src/assets/images/imageInit.png");
+const videoTrainingAbdomen = require("../..//src/assets/videos/TrainingAbdomen.mp4");
 
 export const PostData: IPost[] = [
   {
@@ -38,32 +39,14 @@ export const TrainingData: ICategoryTraining[] = [
     level: "beginner",
     dataTraining: [
       {
+        videoSource: videoTrainingAbdomen,
         level: "Iniciante",
         name: "Abdômen",
         image: photoTrainingAbdomen,
         timer: "18min",
       },
       {
-        level: "Iniciante",
-        name: "Abdômen",
-        image: photoTrainingAbdomen,
-        timer: "18min",
-      },
-    ],
-  },
-  {
-    image: photoBannerTraining,
-    quantityTrainings: "5 Treinos",
-    title: "Clássico",
-    level: "beginner",
-    dataTraining: [
-      {
-        level: "Iniciante",
-        name: "Abdômen",
-        image: photoTrainingAbdomen,
-        timer: "18min",
-      },
-      {
+        videoSource: videoTrainingAbdomen,
         level: "Iniciante",
         name: "Abdômen",
         image: photoTrainingAbdomen,
@@ -78,12 +61,36 @@ export const TrainingData: ICategoryTraining[] = [
     level: "beginner",
     dataTraining: [
       {
+        videoSource: videoTrainingAbdomen,
         level: "Iniciante",
         name: "Abdômen",
         image: photoTrainingAbdomen,
         timer: "18min",
       },
       {
+        videoSource: videoTrainingAbdomen,
+        level: "Iniciante",
+        name: "Abdômen",
+        image: photoTrainingAbdomen,
+        timer: "18min",
+      },
+    ],
+  },
+  {
+    image: photoBannerTraining,
+    quantityTrainings: "5 Treinos",
+    title: "Clássico",
+    level: "beginner",
+    dataTraining: [
+      {
+        videoSource: videoTrainingAbdomen,
+        level: "Iniciante",
+        name: "Abdômen",
+        image: photoTrainingAbdomen,
+        timer: "18min",
+      },
+      {
+        videoSource: videoTrainingAbdomen,
         level: "Iniciante",
         name: "Abdômen",
         image: photoTrainingAbdomen,

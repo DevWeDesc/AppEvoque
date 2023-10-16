@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -17,6 +17,7 @@ export default function Treinos() {
   const video = React.useRef(null);
   const [modalOpen, setModalOpen] = React.useState(false);
   const [status, setStatus] = React.useState({});
+  const [videoTraining, setVideoTraining] = useState();
 
   return (
     <ScrollView style={{ backgroundColor: "#1E1E1E", flex: 1, padding: 20 }}>
@@ -89,7 +90,10 @@ export default function Treinos() {
             {training?.dataTraining?.map((dataTrainings) => (
               <TouchableOpacity
                 activeOpacity={0.65}
-                onPress={() => setModalOpen(true)}
+                onPress={() => {
+                  setModalOpen(true);
+                  setVideoTraining(dataTrainings.videoSource);
+                }}
               >
                 <View
                   style={{
@@ -124,7 +128,7 @@ export default function Treinos() {
         setOpenModal={() => setModalOpen(false)}
         statusVideo={(status: object) => setStatus(() => status)}
         videoRef={video}
-        videoSource={require("../../assets/videos/TrainingAbdomen.mp4")}
+        videoSource={videoTraining}
       />
       <StatusBar style="light" translucent />
     </ScrollView>

@@ -24,6 +24,7 @@ export type ICategoryTraining = {
 };
 
 export type ITrainingData = {
+  videoSource: AVPlaybackSource | any;
   name: string;
   level: string;
   image: string | ImageSourcePropType | any;
@@ -35,5 +36,5 @@ export type IModalTraining = {
   setOpenModal: () => void;
   statusVideo: (status: object) => void;
   videoRef: React.MutableRefObject<null>;
-  videoSource: AVPlaybackSource;
+  videoSource?: AVPlaybackSource | any;
 };
