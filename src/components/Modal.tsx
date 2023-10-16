@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  ImageBackground,
-  Image,
-  ScrollView,
-  Modal,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, Modal, TouchableOpacity } from "react-native";
 import { Video, ResizeMode } from "expo-av";
 import { IModalTraining } from "../../types/types";
 
