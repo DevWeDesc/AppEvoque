@@ -1,15 +1,19 @@
 {
   "expo": {
-    "name": "app-evoke",
+    "name": "Evoque",
     "slug": "app-evoke",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
+    "plataforms": [
+      "ios",
+      "android"
+    ],
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/SplashScreen.png",
       "resizeMode": "contain",
-      "backgroundColor": "#000"
+      "backgroundColor": "#1E1E1E"
     },
     "plugins": [
       [
@@ -24,12 +28,16 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.vinihgv.appevoque"
+      "bundleIdentifier": "com.vinihgv.appevoque",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/evoque.png",
+        "backgroundColor": "#1E1E1E"
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#000"
+        "foregroundImage": "./assets/evoque.png",
+        "backgroundColor": "#1E1E1E"
       },
       "permissions": [
         "android.permission.RECORD_AUDIO"

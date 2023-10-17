@@ -94,7 +94,7 @@ function AppNavigator() {
     <AppContextProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
+          {/* <Stack.Screen
             name="SplashInit"
             component={SplashInit}
             options={{ headerShown: false, animation: "fade" }}
@@ -103,7 +103,7 @@ function AppNavigator() {
             name="SplashScreen"
             component={SplashScreen}
             options={{ headerShown: false, animation: "fade" }}
-          />
+          /> */}
           <Stack.Screen
             name="Login"
             component={Login}
