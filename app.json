@@ -30,13 +30,13 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.vinihgv.appevoque",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/evoque.png",
+        "foregroundImage": "./assets/evoqueIcon.png",
         "backgroundColor": "#1E1E1E"
       }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/evoque.png",
+        "foregroundImage": "./assets/evoqueIcon.png",
         "backgroundColor": "#1E1E1E"
       },
       "permissions": [
